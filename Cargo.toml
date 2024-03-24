@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "xfconf-sys",
+    "xfconf",
+]
+exclude = [
+    "gir",
+]
+resolver = "2"

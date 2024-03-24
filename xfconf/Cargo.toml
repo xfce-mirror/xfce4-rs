@@ -1,0 +1,17 @@
+[package]
+name = "xfconf"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.docs.rs]
+all-features = true
+# For build.rs scripts
+rustc-args = ["--cfg", "docsrs"]
+# For rustdoc
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+bitflags = "2.2"
+ffi = { package = "xfconf-sys", path = "../xfconf-sys" }
+glib = { package = "glib", git = "https://github.com/gtk-rs/gtk-rs-core" }
+libc = "0.2"

@@ -1,0 +1,114 @@
+[options]
+library = "Xfconf"
+version = "0"
+min_cfg_version = "4.18"
+target_path = "."
+girs_directories = [
+    "../gir-files.xfce/",
+    "../gir-filex.gtk/",
+]
+work_mode = "normal"
+single_version_file = true
+generate_safety_asserts = false
+deprecate_by_min_version = true
+trust_return_value_nullability = true
+
+generate = []
+
+manual = [
+    "GLib.Error",
+    "GObject.Object",
+    "GObject.Value",
+]
+
+[[object]]
+name = "Xfconf.*"
+status = "generate"
+    [[object.function]]
+    name = "named_struct_register"
+    ignore = true
+    [[object.function]]
+    name = "array_free"
+    ignore = true
+
+[[object]]
+name = "Xfconf.Channel"
+status = "generate"
+manual_traits = "ChannelExtManual"
+    [[object.function]]
+    name = "get_bool"
+    rename = "get_bool"
+    [[object.function]]
+    name = "get_int"
+    rename = "get_int"
+    [[object.function]]
+    name = "get_uint"
+    rename = "get_uint"
+    [[object.function]]
+    name = "get_uint64"
+    rename = "get_uint64"
+    [[object.function]]
+    name = "get_double"
+    rename = "get_double"
+    [[object.function]]
+    name = "get_string"
+    rename = "get_string"
+    [[object.function]]
+    name = "get_string_list"
+    rename = "get_string_list"
+    [[object.function]]
+    name = "get_arrayv"
+    rename = "get_array"
+    [[object.function]]
+    name = "set_arrayv"
+    rename = "set_array"
+    ignore = true
+    [[object.function]]
+    name = "set_array"
+    ignore = true
+    [[object.function]]
+    name = "set_array_valist"
+    ignore = true
+    [[object.function]]
+    name = "get_array"
+    ignore = true
+    [[object.function]]
+    name = "get_array_valist"
+    ignore = true
+    [[object.function]]
+    name = "set_named_struct"
+    ignore = true
+    [[object.function]]
+    name = "get_named_struct"
+    ignore = true
+    [[object.function]]
+    name = "set_struct"
+    ignore = true
+    [[object.function]]
+    name = "set_structv"
+    ignore = true
+    [[object.function]]
+    name = "set_struct_valist"
+    ignore = true
+    [[object.function]]
+    name = "get_struct"
+    ignore = true
+    [[object.function]]
+    name = "get_structv"
+    ignore = true
+    [[object.function]]
+    name = "get_struct_valist"
+    ignore = true
+    [[object.function]]
+    name = "set_string_list"
+    manual = true
+    doc_trait_name = "ChannelExtManual"
+    [[object.function]]
+    name = "get_property"
+    rename = "get_property"
+    manual = true
+    doc_trait_name = "ChannelExtManual"
+    [[object.function]]
+    name = "get_properties"
+    manual = true
+    doc_trait_name = "ChannelExtManual"
