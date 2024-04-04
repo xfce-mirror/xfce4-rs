@@ -4,6 +4,25 @@
 
 Experimental bindings of Xfce libraries for the Rust programming language. There are no concrete plans to port Xfce projects to Rust, these bindings are only for experimentation purposes.
 
-### Installation
+### How to use
 
-- Execute `sh generate.sh`
+Add to your project's `Cargo.toml`:
+
+```
+[dependencies]
+xfconf = {path = "/path/to/xfce4-rs/xfconf"}
+```
+
+Use as:
+
+```
+fn main() {
+    xfconf::init().expect("Failed to initialize xfconf");
+    let channel = xfconf::Channel::new("xfwm4");
+    let value = channel.get_string("/general/title_font", "not found");
+    println!("title_font: {}", value);
+    xfconf::shutdown();
+}
+```
+
+In the future we plan to publish the bindings to crates.io.
