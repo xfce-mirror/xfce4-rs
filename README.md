@@ -18,7 +18,7 @@ Use as:
 ```
 fn main() {
     xfconf::init().expect("Failed to initialize xfconf");
-    let channel = xfconf::Channel::new("xfwm4");
+    let channel = xfconf::Channel::get("xfwm4");
     let value = channel.get_string("/general/title_font", "not found");
     println!("title_font: {}", value);
     xfconf::shutdown();
