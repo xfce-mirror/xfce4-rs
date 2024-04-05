@@ -1253,9 +1253,9 @@ the last value will always be set to 0xFFFF.</doc>
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="522">A property on @channel.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
-        <parameter name="object" transfer-ownership="none" nullable="1" allow-none="1">
+        <parameter name="object" transfer-ownership="none">
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="523">A #GObject.</doc>
-          <type name="gpointer" c:type="gpointer"/>
+          <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
         <parameter name="object_property" transfer-ownership="none">
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="524">A valid property on @object.</doc>
@@ -1287,9 +1287,9 @@ Xfconf store as four 16-bit unsigned ints (red, green, blue, alpha).</doc>
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="586">A property on @channel.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
-        <parameter name="object" transfer-ownership="none" nullable="1" allow-none="1">
+        <parameter name="object" transfer-ownership="none">
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="587">A #GObject.</doc>
-          <type name="gpointer" c:type="gpointer"/>
+          <type name="GObject.Object" c:type="GObject*"/>
         </parameter>
         <parameter name="object_property" transfer-ownership="none">
           <doc xml:space="preserve" filename="xfconf/xfconf-binding.c" line="588">A valid property on @object.</doc>

@@ -287,13 +287,13 @@ extern "C" {
     pub fn xfconf_g_property_bind_gdkcolor(
         channel: *mut XfconfChannel,
         xfconf_property: *const c_char,
-        object: gpointer,
+        object: *mut gobject::GObject,
         object_property: *const c_char,
     ) -> c_ulong;
     pub fn xfconf_g_property_bind_gdkrgba(
         channel: *mut XfconfChannel,
         xfconf_property: *const c_char,
-        object: gpointer,
+        object: *mut gobject::GObject,
         object_property: *const c_char,
     ) -> c_ulong;
     pub fn xfconf_g_property_unbind(id: c_ulong);

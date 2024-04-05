@@ -7,6 +7,14 @@ xmlstarlet ed --inplace \
     --update '//_:function[@c:identifier="xfconf_g_property_bind"]//_:parameter[@name="object"]//_:type/@c:type' -v "GObject*" \
     --delete '//_:function[@c:identifier="xfconf_g_property_bind"]//_:parameter[@name="object"]/@nullable' \
     --delete '//_:function[@c:identifier="xfconf_g_property_bind"]//_:parameter[@name="object"]/@allow-none' \
+    --update '//_:function[@c:identifier="xfconf_g_property_bind_gdkcolor"]//_:parameter[@name="object"]//_:type/@name' -v "GObject.Object" \
+    --update '//_:function[@c:identifier="xfconf_g_property_bind_gdkcolor"]//_:parameter[@name="object"]//_:type/@c:type' -v "GObject*" \
+    --delete '//_:function[@c:identifier="xfconf_g_property_bind_gdkcolor"]//_:parameter[@name="object"]/@nullable' \
+    --delete '//_:function[@c:identifier="xfconf_g_property_bind_gdkcolor"]//_:parameter[@name="object"]/@allow-none' \
+    --update '//_:function[@c:identifier="xfconf_g_property_bind_gdkrgba"]//_:parameter[@name="object"]//_:type/@name' -v "GObject.Object" \
+    --update '//_:function[@c:identifier="xfconf_g_property_bind_gdkrgba"]//_:parameter[@name="object"]//_:type/@c:type' -v "GObject*" \
+    --delete '//_:function[@c:identifier="xfconf_g_property_bind_gdkrgba"]//_:parameter[@name="object"]/@nullable' \
+    --delete '//_:function[@c:identifier="xfconf_g_property_bind_gdkrgba"]//_:parameter[@name="object"]/@allow-none' \
     --update '//_:function[@c:identifier="xfconf_g_property_unbind_by_property"]//_:parameter[@name="object"]//_:type/@name' -v "GObject.Object" \
     --update '//_:function[@c:identifier="xfconf_g_property_unbind_by_property"]//_:parameter[@name="object"]//_:type/@c:type' -v "GObject*" \
     --delete '//_:function[@c:identifier="xfconf_g_property_unbind_by_property"]//_:parameter[@name="object"]/@nullable' \

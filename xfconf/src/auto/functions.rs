@@ -80,15 +80,83 @@ pub fn property_bind(
     }
 }
 
-//#[doc(alias = "xfconf_g_property_bind_gdkcolor")]
-//pub fn property_bind_gdkcolor(channel: &Channel, xfconf_property: &str, object: /*Unimplemented*/Option<Basic: Pointer>, object_property: &str) -> libc::c_ulong {
-//    unsafe { TODO: call ffi:xfconf_g_property_bind_gdkcolor() }
-//}
+/// Binds an Xfconf property to a [`glib::Object`][crate::glib::Object] property of type
+/// GDK_TYPE_COLOR (aka a `GdkColor` struct). If the property
+/// is changed via either the [`glib::Object`][crate::glib::Object] or Xfconf, the corresponding
+/// property will also be updated.
+///
+/// This is a special-case binding; the GdkColor struct is not
+/// ideal as-is for binding to a property, so it is stored in the
+/// Xfconf store as four 16-bit unsigned ints (red, green, blue, alpha).
+/// Since GdkColor (currently) only supports RGB and not RGBA,
+/// the last value will always be set to 0xFFFF.
+/// ## `channel`
+/// An [`Channel`][crate::Channel].
+/// ## `xfconf_property`
+/// A property on `channel`.
+/// ## `object`
+/// A [`glib::Object`][crate::glib::Object].
+/// ## `object_property`
+/// A valid property on `object`.
+///
+/// # Returns
+///
+/// an ID number that can be used to later remove the
+///  binding.
+#[doc(alias = "xfconf_g_property_bind_gdkcolor")]
+pub fn property_bind_gdkcolor(
+    channel: &Channel,
+    xfconf_property: &str,
+    object: &impl IsA<glib::Object>,
+    object_property: &str,
+) -> libc::c_ulong {
+    unsafe {
+        ffi::xfconf_g_property_bind_gdkcolor(
+            channel.to_glib_none().0,
+            xfconf_property.to_glib_none().0,
+            object.as_ref().to_glib_none().0,
+            object_property.to_glib_none().0,
+        )
+    }
+}
 
-//#[doc(alias = "xfconf_g_property_bind_gdkrgba")]
-//pub fn property_bind_gdkrgba(channel: &Channel, xfconf_property: &str, object: /*Unimplemented*/Option<Basic: Pointer>, object_property: &str) -> libc::c_ulong {
-//    unsafe { TODO: call ffi:xfconf_g_property_bind_gdkrgba() }
-//}
+/// Binds an Xfconf property to a [`glib::Object`][crate::glib::Object] property of type
+/// GDK_TYPE_RGBA (aka a `GdkRGBA` struct). If the property
+/// is changed via either the [`glib::Object`][crate::glib::Object] or Xfconf, the corresponding
+/// property will also be updated.
+///
+/// This is a special-case binding; the GdkRGBA struct is not
+/// ideal as-is for binding to a property, so it is stored in the
+/// Xfconf store as four 16-bit unsigned ints (red, green, blue, alpha).
+/// ## `channel`
+/// An [`Channel`][crate::Channel].
+/// ## `xfconf_property`
+/// A property on `channel`.
+/// ## `object`
+/// A [`glib::Object`][crate::glib::Object].
+/// ## `object_property`
+/// A valid property on `object`.
+///
+/// # Returns
+///
+/// an ID number that can be used to later remove the
+///  binding.
+#[doc(alias = "xfconf_g_property_bind_gdkrgba")]
+pub fn property_bind_gdkrgba(
+    channel: &Channel,
+    xfconf_property: &str,
+    object: &impl IsA<glib::Object>,
+    object_property: &str,
+) -> libc::c_ulong {
+    unsafe {
+        ffi::xfconf_g_property_bind_gdkrgba(
+            channel.to_glib_none().0,
+            xfconf_property.to_glib_none().0,
+            object.as_ref().to_glib_none().0,
+            object_property.to_glib_none().0,
+        )
+    }
+}
 
 /// Removes an Xfconf/GObject property binding based on the binding
 /// ID number. See [`property_bind()`][crate::property_bind()].
