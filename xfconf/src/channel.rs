@@ -8,7 +8,7 @@ pub trait ChannelExtManual {
     fn set_string_list(&self, property: &str, values: &[&str]) -> bool;
 
     #[doc(alias = "xfconf_channel_get_properties")]
-    fn get_properties(&self, property_base: Option<&str>) -> HashMap<String, glib::Value>;
+    fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value>;
 
     #[doc(alias = "xfconf_channel_get_property")]
     fn get_property(&self, property: &str) -> Option<glib::Value>;
@@ -29,7 +29,7 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
 
     // gir isn't handling a GHashTable return properlya
     #[doc(alias = "xfconf_channel_get_properties")]
-    fn get_properties(&self, property_base: Option<&str>) -> HashMap<String, glib::Value> {
+    fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value> {
         unsafe {
             let hashtable = ffi::xfconf_channel_get_properties(
                 self.as_ref().to_glib_none().0,
@@ -38,7 +38,7 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
             if hashtable.is_null() {
                 HashMap::new()
             } else {
-                ghashtable_to_hashmap_string_value(hashtable)
+                ghashtable_into_hashmap_string_value(hashtable)
             }
         }
     }
@@ -62,25 +62,27 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
     }
 }
 
-unsafe fn ghashtable_to_hashmap_string_value(
+unsafe fn ghashtable_into_hashmap_string_value(
     ptr: *mut glib::ffi::GHashTable,
-) -> HashMap<String, glib::Value> {
+) -> HashMap<glib::GString, glib::Value> {
     unsafe extern "C" fn read_string_hash_table(
         key: glib::ffi::gpointer,
         value: glib::ffi::gpointer,
         hash_map: glib::ffi::gpointer,
-    ) {
-        let key: String = from_glib_none(key as *const libc::c_char);
-        let value: glib::Value = from_glib_none(value as *const GValue);
-        let hash_map: &mut HashMap<String, glib::Value> =
-            &mut *(hash_map as *mut HashMap<String, glib::Value>);
+    ) -> i32 {
+        let key: glib::GString = from_glib_full(key as *const libc::c_char);
+        let value: glib::Value = from_glib_full(value as *const GValue);
+        let hash_map: &mut HashMap<glib::GString, glib::Value> =
+            &mut *(hash_map as *mut HashMap<glib::GString, glib::Value>);
         hash_map.insert(key, value);
+        1
     }
     let mut map = HashMap::with_capacity(glib::ffi::g_hash_table_size(ptr) as usize);
-    glib::ffi::g_hash_table_foreach(
+    glib::ffi::g_hash_table_foreach_steal(
         ptr,
         Some(read_string_hash_table),
-        &mut map as *mut HashMap<String, glib::Value> as *mut _,
+        &mut map as *mut HashMap<glib::GString, glib::Value> as *mut _,
     );
+    glib::ffi::g_hash_table_destroy(ptr);
     map
 }
