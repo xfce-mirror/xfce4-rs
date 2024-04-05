@@ -35,12 +35,14 @@ pub fn init() -> Result<(), glib::Error> {
 ///  Free with `g_strfreev()` when no longer needed.
 #[doc(alias = "xfconf_list_channels")]
 pub fn list_channels() -> Vec<glib::GString> {
-    unsafe { FromGlibPtrContainer::from_glib_none(ffi::xfconf_list_channels()) }
+    unsafe { FromGlibPtrContainer::from_glib_full(ffi::xfconf_list_channels()) }
 }
 
 /// Binds an Xfconf property to a [`glib::Object`][crate::glib::Object] property. If the property
 /// is changed via either the [`glib::Object`][crate::glib::Object] or Xfconf, the corresponding
-/// property will also be updated.
+/// property will also be updated. The binding is initialized from the
+/// Xfconf property, i.e. the initial value of the [`glib::Object`][crate::glib::Object] property is
+/// overwritten.
 ///
 /// Note that `xfconf_property_type` is required since `xfconf_property`
 /// may or may not already exist in the Xfconf store. The type of
@@ -83,7 +85,9 @@ pub fn property_bind(
 /// Binds an Xfconf property to a [`glib::Object`][crate::glib::Object] property of type
 /// GDK_TYPE_COLOR (aka a `GdkColor` struct). If the property
 /// is changed via either the [`glib::Object`][crate::glib::Object] or Xfconf, the corresponding
-/// property will also be updated.
+/// property will also be updated. The binding is initialized from the
+/// Xfconf property, i.e. the initial value of the [`glib::Object`][crate::glib::Object] property is
+/// overwritten.
 ///
 /// This is a special-case binding; the GdkColor struct is not
 /// ideal as-is for binding to a property, so it is stored in the
@@ -123,7 +127,9 @@ pub fn property_bind_gdkcolor(
 /// Binds an Xfconf property to a [`glib::Object`][crate::glib::Object] property of type
 /// GDK_TYPE_RGBA (aka a `GdkRGBA` struct). If the property
 /// is changed via either the [`glib::Object`][crate::glib::Object] or Xfconf, the corresponding
-/// property will also be updated.
+/// property will also be updated. The binding is initialized from the
+/// Xfconf property, i.e. the initial value of the [`glib::Object`][crate::glib::Object] property is
+/// overwritten.
 ///
 /// This is a special-case binding; the GdkRGBA struct is not
 /// ideal as-is for binding to a property, so it is stored in the

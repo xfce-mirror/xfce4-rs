@@ -61,6 +61,22 @@ glib::wrapper! {
 }
 
 impl Channel {
+    /// Either creates a new channel, or fetches a singleton object for
+    /// `channel_name`. This function always returns a valid object; no
+    /// checking is done to see if the channel exists or has a valid name.
+    ///
+    /// The reference count of the returned channel is owned by libxfconf.
+    /// ## `channel_name`
+    /// A channel name.
+    ///
+    /// # Returns
+    ///
+    /// An [`Channel`][crate::Channel] singleton.
+    #[doc(alias = "xfconf_channel_get")]
+    pub fn get(channel_name: &str) -> Channel {
+        unsafe { from_glib_none(ffi::xfconf_channel_get(channel_name.to_glib_none().0)) }
+    }
+
     /// Creates a new channel using `name` as the channel's identifier.
     /// This function always returns a valid object; no checking is done
     /// to see if the channel exists or has a valid name.
@@ -126,7 +142,7 @@ impl Channel {
     #[doc(alias = "get_arrayv")]
     pub fn get_array(&self, property: &str) -> Vec<glib::Value> {
         unsafe {
-            FromGlibPtrContainer::from_glib_container(ffi::xfconf_channel_get_arrayv(
+            FromGlibPtrContainer::from_glib_full(ffi::xfconf_channel_get_arrayv(
                 self.to_glib_none().0,
                 property.to_glib_none().0,
             ))
@@ -204,11 +220,13 @@ impl Channel {
     ///
     /// # Returns
     ///
-    /// A newly-allocated string which should be freed with `g_free()`
-    ///  when no longer needed. If `property` is not in `self`,
-    ///  a `g_strdup()`ed copy of `default_value` is returned.
+    /// A newly-allocated string which should
+    ///  be freed with `g_free()` when no longer
+    ///  needed. If `property` is not in
+    ///  `self`, a `g_strdup()`ed copy of
+    ///  `default_value` is returned.
     #[doc(alias = "xfconf_channel_get_string")]
-    pub fn get_string(&self, property: &str, default_value: &str) -> glib::GString {
+    pub fn get_string(&self, property: &str, default_value: Option<&str>) -> Option<glib::GString> {
         unsafe {
             from_glib_full(ffi::xfconf_channel_get_string(
                 self.to_glib_none().0,
@@ -488,22 +506,6 @@ impl Channel {
     #[doc(alias = "property-base")]
     pub fn property_base(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "property-base")
-    }
-
-    /// Either creates a new channel, or fetches a singleton object for
-    /// `channel_name`. This function always returns a valid object; no
-    /// checking is done to see if the channel exists or has a valid name.
-    ///
-    /// The reference count of the returned channel is owned by libxfconf.
-    /// ## `channel_name`
-    /// A channel name.
-    ///
-    /// # Returns
-    ///
-    /// An [`Channel`][crate::Channel] singleton.
-    #[doc(alias = "xfconf_channel_get")]
-    pub fn get(channel_name: &str) -> Channel {
-        unsafe { from_glib_none(ffi::xfconf_channel_get(channel_name.to_glib_none().0)) }
     }
 
     /// Emitted whenever a property on `channel` has changed. If

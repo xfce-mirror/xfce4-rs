@@ -88,12 +88,12 @@ extern "C" {
     // XfconfChannel
     //=========================================================================
     pub fn xfconf_channel_get_type() -> GType;
+    pub fn xfconf_channel_get(channel_name: *const c_char) -> *mut XfconfChannel;
     pub fn xfconf_channel_new(channel_name: *const c_char) -> *mut XfconfChannel;
     pub fn xfconf_channel_new_with_property_base(
         channel_name: *const c_char,
         property_base: *const c_char,
     ) -> *mut XfconfChannel;
-    pub fn xfconf_channel_get(channel_name: *const c_char) -> *mut XfconfChannel;
     pub fn xfconf_channel_get_array(
         channel: *mut XfconfChannel,
         property: *const c_char,
