@@ -54,9 +54,6 @@ manual_traits = "ChannelExtManual"
     name = "get_string"
     rename = "get_string"
     [[object.function]]
-    name = "get_string_list"
-    rename = "get_string_list"
-    [[object.function]]
     name = "get_arrayv"
     rename = "get_array"
     [[object.function]]
@@ -101,6 +98,10 @@ manual_traits = "ChannelExtManual"
     ignore = true
     [[object.function]]
     name = "set_string_list"
+    manual = true
+    doc_trait_name = "ChannelExtManual"
+    [[object.function]]
+    name = "get_string_list"
     manual = true
     doc_trait_name = "ChannelExtManual"
     [[object.function]]

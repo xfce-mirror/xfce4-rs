@@ -7,6 +7,9 @@ pub trait ChannelExtManual {
     #[doc(alias = "xfconf_channel_set_string_list")]
     fn set_string_list(&self, property: &str, values: &[&str]) -> bool;
 
+    #[doc(alias = "xfconf_channel_get_string_list")]
+    fn get_string_list(&self, property: &str) -> Option<Vec<glib::GString>>;
+
     #[doc(alias = "xfconf_channel_get_properties")]
     fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value>;
 
@@ -24,6 +27,22 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
                 property.to_glib_none().0,
                 values.to_glib_none().0,
             ))
+        }
+    }
+
+    // gir isn't returning an Option
+    #[doc(alias = "xfconf_channel_get_string_list")]
+    fn get_string_list(&self, property: &str) -> Option<Vec<glib::GString>> {
+        unsafe {
+            let ptr = ffi::xfconf_channel_get_string_list(
+                self.as_ref().to_glib_none().0,
+                property.to_glib_none().0,
+            );
+            if !ptr.is_null() {
+                Some(FromGlibPtrContainer::from_glib_full(ptr))
+            } else {
+                None
+            }
         }
     }
 

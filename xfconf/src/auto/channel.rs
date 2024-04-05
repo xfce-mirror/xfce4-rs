@@ -218,25 +218,6 @@ impl Channel {
         }
     }
 
-    /// Retrieves the string list value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    ///
-    /// # Returns
-    ///
-    /// A newly-allocated string list which should be freed with
-    ///  `g_strfreev()` when no longer needed. If `property` is not in
-    ///  `self`, [`None`] is returned.
-    #[doc(alias = "xfconf_channel_get_string_list")]
-    pub fn get_string_list(&self, property: &str) -> Vec<glib::GString> {
-        unsafe {
-            FromGlibPtrContainer::from_glib_full(ffi::xfconf_channel_get_string_list(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-            ))
-        }
-    }
-
     /// Retrieves the unsigned int value associated with `property` on `self`.
     /// ## `property`
     /// A property name.
