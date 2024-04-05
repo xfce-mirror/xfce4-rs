@@ -72,8 +72,9 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
                 property.to_glib_none().0,
                 value,
             ));
-            if ret {
-                Some(from_glib_none(value))
+            let value: glib::Value = from_glib_none(value);
+            if ret && value.value_type().is_valid() {
+                Some(value)
             } else {
                 None
             }
