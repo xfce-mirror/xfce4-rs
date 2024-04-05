@@ -30,6 +30,9 @@ status = "generate"
     [[object.function]]
     name = "array_free"
     ignore = true
+    [[object.function]]
+    name = "shutdown"
+    manual = true
 
 [[object]]
 name = "Xfconf.Channel"

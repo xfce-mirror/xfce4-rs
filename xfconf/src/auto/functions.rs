@@ -210,16 +210,6 @@ pub fn property_unbind_by_property(
     }
 }
 
-/// Shuts down and frees any resources consumed by the Xfconf library.
-/// If [`init()`][crate::init()] is called multiple times, [`shutdown()`][crate::shutdown()] must be
-/// called an equal number of times to shut down the library.
-#[doc(alias = "xfconf_shutdown")]
-pub fn shutdown() {
-    unsafe {
-        ffi::xfconf_shutdown();
-    }
-}
-
 /// Retrieves a 16-bit signed value from `value`.
 /// ## `value`
 /// A [`glib::Value`][crate::glib::Value].
