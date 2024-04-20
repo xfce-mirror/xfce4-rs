@@ -1,0 +1,37 @@
+[options]
+library = "Libxfce4util"
+version = "1.0"
+min_cfg_version = "4.18"
+target_path = "."
+girs_directories = [
+    "../gir-files.xfce/",
+    "../gir-filex.gtk/",
+]
+work_mode = "normal"
+single_version_file = true
+generate_safety_asserts = false
+deprecate_by_min_version = true
+trust_return_value_nullability = true
+
+generate = [
+    "Libxfce4util.Consolekit",
+    "Libxfce4util.Kiosk",
+    "Libxfce4util.Systemd",
+]
+
+manual = [
+    "GLib.Error",
+    "GObject.Object",
+    "GObject.Value",
+]
+
+[[object]]
+name = "Libxfce4util.*"
+status = "generate"
+manual_traits = "Libxfce4utilExtManual"
+    [[object.function]]
+    name = "expand_desktop_entry_field_codes"
+    ignore = true
+    [[object.function]]
+    name = "expand_variables"
+    ignore = true

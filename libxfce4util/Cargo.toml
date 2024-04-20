@@ -1,0 +1,20 @@
+[package]
+name = "libxfce4util"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.docs.rs]
+all-features = true
+# For build.rs scripts
+rustc-args = ["--cfg", "docsrs"]
+# For rustdoc
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+bitflags = "2.2"
+ffi = { package = "libxfce4util-sys", path = "../libxfce4util-sys" }
+glib = { package = "glib", git = "https://github.com/gtk-rs/gtk-rs-core" }
+libc = "0.2"
+
+[dev-dependencies]
+regex = "1.10.4"
