@@ -4,6 +4,18 @@
 
 Experimental bindings of Xfce libraries for the Rust programming language. There are no concrete plans to port Xfce projects to Rust, these bindings are only for experimentation purposes.
 
+### Status
+
+| Library | Support |
+| ------ | ------ |
+| exo | TODO |
+| garcon | TODO |
+| libxfce4panel | TODO |
+| thunarx | TODO |
+| libxfce4ui | TODO |
+| libxfce4util | WIP |
+| xfconf | WIP |
+
 ### How to use
 
 Add to your project's `Cargo.toml`:
@@ -25,4 +37,4 @@ fn main() {
 }
 ```
 
-In the future we plan to publish the bindings to crates.io.
+In the future we might publish the bindings to crates.io.
