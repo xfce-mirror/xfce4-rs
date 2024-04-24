@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "libxfce4util-sys",
+    "libxfce4util",
     "xfconf-sys",
     "xfconf",
 ]
