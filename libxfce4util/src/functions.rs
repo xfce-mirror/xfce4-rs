@@ -1,6 +1,11 @@
-// FIXME
+use glib::{translate::*};
 
-// use glib::{gobject_ffi::GValue, prelude::*, translate::*};
+#[doc(alias = "xfce_get_license_text")]
+pub fn get_license_text(license_type: ffi::XfceLicenseTextType) -> glib::GString {
+   unsafe { from_glib_none(ffi::xfce_get_license_text(license_type)) }
+}
+
+// FIXME
 
 // #[doc(alias = "xfce_expand_desktop_entry_field_codes")]
 // fn expand_desktop_entry_field_codes(
