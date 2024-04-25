@@ -1,5 +1,7 @@
 use xfconf::*;
 
+// ignored because in CI there is no valid setting
+#[ignore]
 #[test]
 fn get_int_should_get_valid_value() {
     init().expect("Failed to initialize xfconf");
