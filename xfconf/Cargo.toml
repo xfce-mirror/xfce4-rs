@@ -12,6 +12,6 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 bitflags = "2.2"
-ffi = { package = "xfconf-sys", path = "../xfconf-sys" }
+ffi = { package = "xfconf-sys", path = "sys" }
 glib = { package = "glib", git = "https://github.com/gtk-rs/gtk-rs-core" }
 libc = "0.2"
