@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::Channel;
+use crate::{Channel, ToXfconfValue, TryFromXfconfValue};
 use glib::{gobject_ffi::GValue, prelude::*, translate::*};
 
 pub trait ChannelExtManual {
@@ -14,7 +14,13 @@ pub trait ChannelExtManual {
     fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value>;
 
     #[doc(alias = "xfconf_channel_get_property")]
-    fn get_property(&self, property: &str) -> Option<glib::Value>;
+    fn get_property_value(&self, property: &str) -> Option<glib::Value>;
+
+    #[doc(alias = "xfconf_channel_get_property")]
+    fn get_property<V: TryFromXfconfValue>(&self, property: &str) -> Option<V>;
+
+    #[doc(alias = "xfconf_channel_set_property")]
+    fn set_property<V: ToXfconfValue>(&self, property: &str, value: V) -> bool;
 }
 
 impl<O: IsA<Channel>> ChannelExtManual for O {
@@ -64,7 +70,7 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
 
     // gir gets the signature right, but then passes the 'value' out parameter incorrectly
     #[doc(alias = "xfconf_channel_get_property")]
-    fn get_property(&self, property: &str) -> Option<glib::Value> {
+    fn get_property_value(&self, property: &str) -> Option<glib::Value> {
         unsafe {
             let value = std::ptr::null_mut();
             let ret = from_glib(ffi::xfconf_channel_get_property(
@@ -79,6 +85,27 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
                 None
             }
         }
+    }
+
+    #[doc(alias = "xfconf_channel_get_property")]
+    fn get_property<V: TryFromXfconfValue>(&self, property: &str) -> Option<V> {
+        self.get_property_value(property).and_then(|v| {
+            V::try_from_xfconf_value(v).or_else(|| {
+                glib::g_warning!(
+                    "xfconf",
+                    "Value for property '{}' could not be converted to type {}",
+                    property,
+                    V::xfconf_display_name(),
+                );
+                None
+            })
+        })
+    }
+
+    #[doc(alias = "xfconf_channel_set_property")]
+    fn set_property<V: ToXfconfValue>(&self, property: &str, value: V) -> bool {
+        self.as_ref()
+            .set_property_value(property, &value.to_xfconf_value())
     }
 }
 
