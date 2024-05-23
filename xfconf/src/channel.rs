@@ -1,52 +1,47 @@
 use std::collections::HashMap;
 
-use crate::Channel;
+use crate::{Channel, ToXfconfValue, TryFromXfconfValue};
 use glib::{gobject_ffi::GValue, prelude::*, translate::*};
 
+pub trait ChannelExt {
+    #[doc(alias = "xfconf_channel_get_property")]
+    fn get<V: TryFromXfconfValue>(&self, property: &str) -> Option<V>;
+
+    #[doc(alias = "xfconf_channel_set_property")]
+    fn set<V: ToXfconfValue>(&self, property: &str, value: V) -> bool;
+}
+
 pub trait ChannelExtManual {
-    #[doc(alias = "xfconf_channel_set_string_list")]
-    fn set_string_list(&self, property: &str, values: &[&str]) -> bool;
-
-    #[doc(alias = "xfconf_channel_get_string_list")]
-    fn get_string_list(&self, property: &str) -> Option<Vec<glib::GString>>;
-
     #[doc(alias = "xfconf_channel_get_properties")]
     fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value>;
 
     #[doc(alias = "xfconf_channel_get_property")]
-    fn get_property(&self, property: &str) -> Option<glib::Value>;
+    fn get_value(&self, property: &str) -> Option<glib::Value>;
+}
+
+impl<O: IsA<Channel>> ChannelExt for O {
+    fn get<V: TryFromXfconfValue>(&self, property: &str) -> Option<V> {
+        self.get_value(property).and_then(|v| {
+            let ret = V::try_from_xfconf_value(&v);
+            if ret.is_none() {
+                glib::g_warning!(
+                    "xfconf",
+                    "Value for property '{}' could not be converted to type {}",
+                    property,
+                    V::xfconf_display_name(),
+                );
+            }
+            ret
+        })
+    }
+
+    fn set<V: ToXfconfValue>(&self, property: &str, value: V) -> bool {
+        self.as_ref().set_value(property, &value.to_xfconf_value())
+    }
 }
 
 impl<O: IsA<Channel>> ChannelExtManual for O {
-    // gir seems to think 'values' should be a '&str'
-    #[doc(alias = "xfconf_channel_set_string_list")]
-    fn set_string_list(&self, property: &str, values: &[&str]) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_string_list(
-                self.as_ref().to_glib_none().0,
-                property.to_glib_none().0,
-                values.to_glib_none().0,
-            ))
-        }
-    }
-
-    // gir isn't returning an Option
-    #[doc(alias = "xfconf_channel_get_string_list")]
-    fn get_string_list(&self, property: &str) -> Option<Vec<glib::GString>> {
-        unsafe {
-            let ptr = ffi::xfconf_channel_get_string_list(
-                self.as_ref().to_glib_none().0,
-                property.to_glib_none().0,
-            );
-            if !ptr.is_null() {
-                Some(FromGlibPtrContainer::from_glib_full(ptr))
-            } else {
-                None
-            }
-        }
-    }
-
-    // gir isn't handling a GHashTable return properlya
+    // gir isn't handling a GHashTable return properly
     #[doc(alias = "xfconf_channel_get_properties")]
     fn get_properties(&self, property_base: Option<&str>) -> HashMap<glib::GString, glib::Value> {
         unsafe {
@@ -64,21 +59,38 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
 
     // gir gets the signature right, but then passes the 'value' out parameter incorrectly
     #[doc(alias = "xfconf_channel_get_property")]
-    fn get_property(&self, property: &str) -> Option<glib::Value> {
-        unsafe {
-            let value = std::ptr::null_mut();
-            let ret = from_glib(ffi::xfconf_channel_get_property(
+    fn get_value(&self, property: &str) -> Option<glib::Value> {
+        let mut value = glib::gobject_ffi::GValue {
+            g_type: glib::Type::INVALID.into_glib(),
+            data: [
+                glib::gobject_ffi::GValue_data { v_int: 0 },
+                glib::gobject_ffi::GValue_data { v_int: 0 },
+            ],
+        };
+
+        let ret: bool = unsafe {
+            from_glib(ffi::xfconf_channel_get_property(
                 self.as_ref().to_glib_none().0,
                 property.to_glib_none().0,
-                value,
-            ));
-            let value: glib::Value = from_glib_none(value);
-            if ret && value.value_type().is_valid() {
+                &mut value as *mut _,
+            ))
+        };
+        let ret = if !ret {
+            None
+        } else {
+            let value: glib::Value = unsafe { from_glib_none(&mut value as *mut _) };
+            if value.value_type().is_valid() {
                 Some(value)
             } else {
                 None
             }
+        };
+
+        unsafe {
+            glib::gobject_ffi::g_value_unset(&mut value as *mut _);
         }
+
+        ret
     }
 }
 
