@@ -128,156 +128,6 @@ impl Channel {
         }
     }
 
-    /// Gets an array property on `self` and returns it as
-    /// a `GPtrArray`, which can be freed with `xfconf_array_free()`
-    /// when no longer needed.
-    /// ## `property`
-    /// A property string.
-    ///
-    /// # Returns
-    ///
-    /// A newly-allocated `GPtrArray` on success,
-    /// or [`None`] on failure.
-    #[doc(alias = "xfconf_channel_get_arrayv")]
-    #[doc(alias = "get_arrayv")]
-    pub fn get_array(&self, property: &str) -> Vec<glib::Value> {
-        unsafe {
-            FromGlibPtrContainer::from_glib_full(ffi::xfconf_channel_get_arrayv(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-            ))
-        }
-    }
-
-    /// Retrieves the boolean value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// The boolean value, or, if `property` is not in `self`,
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_bool")]
-    pub fn get_bool(&self, property: &str, default_value: bool) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_get_bool(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value.into_glib(),
-            ))
-        }
-    }
-
-    /// Retrieves the double value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// The double value, or, if `property` is not in `self`,
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_double")]
-    pub fn get_double(&self, property: &str, default_value: f64) -> f64 {
-        unsafe {
-            ffi::xfconf_channel_get_double(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value,
-            )
-        }
-    }
-
-    /// Retrieves the int value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// The int value, or, if `property` is not in `self`,
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_int")]
-    pub fn get_int(&self, property: &str, default_value: i32) -> i32 {
-        unsafe {
-            ffi::xfconf_channel_get_int(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value,
-            )
-        }
-    }
-
-    /// Retrieves the string value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// A newly-allocated string which should
-    ///  be freed with `g_free()` when no longer
-    ///  needed. If `property` is not in
-    ///  `self`, a `g_strdup()`ed copy of
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_string")]
-    pub fn get_string(&self, property: &str, default_value: Option<&str>) -> Option<glib::GString> {
-        unsafe {
-            from_glib_full(ffi::xfconf_channel_get_string(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value.to_glib_none().0,
-            ))
-        }
-    }
-
-    /// Retrieves the unsigned int value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// The uint value, or, if `property` is not in `self`,
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_uint")]
-    pub fn get_uint(&self, property: &str, default_value: u32) -> u32 {
-        unsafe {
-            ffi::xfconf_channel_get_uint(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value,
-            )
-        }
-    }
-
-    /// Retrieves the 64-bit int value associated with `property` on `self`.
-    /// ## `property`
-    /// A property name.
-    /// ## `default_value`
-    /// A fallback value.
-    ///
-    /// # Returns
-    ///
-    /// The uint64 value, or, if `property` is not in `self`,
-    ///  `default_value` is returned.
-    #[doc(alias = "xfconf_channel_get_uint64")]
-    pub fn get_uint64(&self, property: &str, default_value: u64) -> u64 {
-        unsafe {
-            ffi::xfconf_channel_get_uint64(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                default_value,
-            )
-        }
-    }
-
     /// Checks to see if `property` exists on `self`.
     /// ## `property`
     /// A property name.
@@ -297,7 +147,7 @@ impl Channel {
 
     /// Queries whether or not `property` on `self` is locked by system
     /// policy. If the property is locked, calls to
-    /// [`set_property()`][Self::set_property()] (or any of the "set" family of functions)
+    /// [`set_property_value()`][Self::set_property_value()] (or any of the "set" family of functions)
     /// or [`reset_property()`][Self::reset_property()] will fail.
     /// ## `property`
     /// A property name.
@@ -344,66 +194,6 @@ impl Channel {
         }
     }
 
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_bool")]
-    pub fn set_bool(&self, property: &str, value: bool) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_bool(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value.into_glib(),
-            ))
-        }
-    }
-
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_double")]
-    pub fn set_double(&self, property: &str, value: f64) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_double(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value,
-            ))
-        }
-    }
-
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_int")]
-    pub fn set_int(&self, property: &str, value: i32) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_int(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value,
-            ))
-        }
-    }
-
     /// Sets the value stored in `value` to a property on `self`.
     ///
     /// Note: The configuration store backend almost certainly supports
@@ -417,72 +207,13 @@ impl Channel {
     ///
     /// [`true`] if the property was set successfully, [`false`] otherwise.
     #[doc(alias = "xfconf_channel_set_property")]
-    pub fn set_property(&self, property: &str, value: &glib::Value) -> bool {
+    #[doc(alias = "set_property")]
+    pub fn set_property_value(&self, property: &str, value: &glib::Value) -> bool {
         unsafe {
             from_glib(ffi::xfconf_channel_set_property(
                 self.to_glib_none().0,
                 property.to_glib_none().0,
                 value.to_glib_none().0,
-            ))
-        }
-    }
-
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_string")]
-    pub fn set_string(&self, property: &str, value: &str) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_string(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value.to_glib_none().0,
-            ))
-        }
-    }
-
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_uint")]
-    pub fn set_uint(&self, property: &str, value: u32) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_uint(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value,
-            ))
-        }
-    }
-
-    /// Sets `value` for `property` on `self` in the configuration store.
-    /// ## `property`
-    /// A property name.
-    /// ## `value`
-    /// The value to set.
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success, [`false`] if an error occured.
-    #[doc(alias = "xfconf_channel_set_uint64")]
-    pub fn set_uint64(&self, property: &str, value: u64) -> bool {
-        unsafe {
-            from_glib(ffi::xfconf_channel_set_uint64(
-                self.to_glib_none().0,
-                property.to_glib_none().0,
-                value,
             ))
         }
     }
