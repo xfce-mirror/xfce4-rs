@@ -5,7 +5,7 @@ min_cfg_version = "4.18"
 target_path = "."
 girs_directories = [
     "../gir-files.xfce/",
-    "../gir-filex.gtk/",
+    "../gir-files.gtk/",
 ]
 work_mode = "normal"
 single_version_file = true
