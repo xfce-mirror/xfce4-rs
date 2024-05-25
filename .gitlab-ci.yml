@@ -12,15 +12,15 @@ workflow:
     - if: $CI_MERGE_REQUEST_IID
 
 stages:
-#  - style
+  - style
   - test
 
-# TODO: enable this once warnings are fixed
-#style:
-#  stage: style
-#  script:
+# TODO: enable clippy once warnings are fixed
+style:
+  stage: style
+  script:
 #    - cargo clippy --no-deps -- -D warnings
-#    - cargo fmt --check
+    - cargo fmt --check
 
 test:
   stage: test
