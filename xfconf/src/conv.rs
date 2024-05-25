@@ -286,7 +286,7 @@ pub(crate) fn gvalue_slice_to_gvalue<T: ToXfconfValue>(values: &[T]) -> glib::Va
         );
         assert!(!ptrarr.is_null());
 
-        for value in values.into_iter() {
+        for value in values {
             glib::ffi::g_ptr_array_add(ptrarr, value.to_xfconf_value().to_glib_full() as *mut _);
         }
 
