@@ -24,6 +24,7 @@ manual = [
 [[object]]
 name = "Xfconf.*"
 status = "generate"
+manual_traits = "ChannelBindingExt"
     [[object.function]]
     name = "named_struct_register"
     ignore = true
@@ -45,6 +46,34 @@ status = "generate"
     [[object.function]]
     name = "value_set_int16"
     ignore = true
+    [[object.function]]
+    name = "property_bind_gdkcolor"
+    ignore = true
+    [[object.function]]
+    name = "property_bind"
+    rename = "bind_property"
+    manual = true
+    doc_trait_name = "ChannelBindingExt"
+    [[object.function]]
+    name = "property_bind_gdkrgba"
+    rename = "bind_gdkrgba_property"
+    manual = true
+    doc_trait_name = "ChannelBindingExt"
+    [[object.function]]
+    name = "property_unbind"
+    rename = "unbind"
+    manual = true
+    doc_trait_name = "ChannelBindingExt"
+    [[object.function]]
+    name = "property_unbind_by_property"
+    rename = "unbind_by_property"
+    manual = true
+    doc_trait_name = "ChannelBindingExt"
+    [[object.function]]
+    name = "property_unbind_all"
+    rename = "unbind_all"
+    manual = true
+    doc_trait_name = "ChannelBindingExt"
 
 [[object]]
 name = "Xfconf.Channel"
