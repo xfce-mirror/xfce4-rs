@@ -34,5 +34,5 @@ test:
 .install-rust:
   before_script:
     - DEBIAN_FRONTEND=noninteractive apt-get update
-    - DEBIAN_FRONTEND=noninteractive apt-get install -y cargo rustc
+    - DEBIAN_FRONTEND=noninteractive apt-get install -y cargo rustc rustfmt
     - DEBIAN_FRONTEND=noninteractive apt-get clean
