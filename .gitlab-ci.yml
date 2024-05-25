@@ -18,6 +18,8 @@ stages:
 # TODO: enable clippy once warnings are fixed
 style:
   stage: style
+  before_script:
+    - !reference [.install-rust, before_script]
   script:
 #    - cargo clippy --no-deps -- -D warnings
     - cargo fmt --check
