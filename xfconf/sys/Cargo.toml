@@ -18,13 +18,9 @@ features = ["dox"]
 name = "xfconf_sys"
 
 [dependencies]
+glib-sys = "0.18"
+gobject-sys = "0.18"
 libc = "0.2"
-
-[dependencies.glib-sys]
-git = "https://github.com/gtk-rs/gtk-rs-core"
-
-[dependencies.gobject-sys]
-git = "https://github.com/gtk-rs/gtk-rs-core"
 
 [build-dependencies]
 system-deps = "6"
