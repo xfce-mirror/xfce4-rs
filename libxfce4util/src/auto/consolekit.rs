@@ -3,8 +3,6 @@
 // from gir-files.xfce
 // DO NOT EDIT
 
-#[cfg(feature = "v4_19_1")]
-#[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
 use glib::translate::*;
 
 glib::wrapper! {
@@ -33,10 +31,8 @@ impl Consolekit {
     ///
     /// ## `auth_hibernate`
     /// location to store authorization or [`None`]
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_can_hibernate")]
-    pub fn can_hibernate(&self) -> Result<(Option<bool>, Option<bool>), glib::Error> {
+    pub fn can_hibernate(&self) -> Result<(bool, bool), glib::Error> {
         unsafe {
             let mut can_hibernate = std::mem::MaybeUninit::uninit();
             let mut auth_hibernate = std::mem::MaybeUninit::uninit();
@@ -70,10 +66,8 @@ impl Consolekit {
     ///
     /// ## `auth_hybrid_sleep`
     /// location to store authorization or [`None`]
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_can_hybrid_sleep")]
-    pub fn can_hybrid_sleep(&self) -> Result<(Option<bool>, Option<bool>), glib::Error> {
+    pub fn can_hybrid_sleep(&self) -> Result<(bool, bool), glib::Error> {
         unsafe {
             let mut can_hybrid_sleep = std::mem::MaybeUninit::uninit();
             let mut auth_hybrid_sleep = std::mem::MaybeUninit::uninit();
@@ -107,10 +101,8 @@ impl Consolekit {
     ///
     /// ## `auth_power_off`
     /// location to store authorization or [`None`]
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_can_power_off")]
-    pub fn can_power_off(&self) -> Result<(Option<bool>, Option<bool>), glib::Error> {
+    pub fn can_power_off(&self) -> Result<(bool, bool), glib::Error> {
         unsafe {
             let mut can_power_off = std::mem::MaybeUninit::uninit();
             let mut auth_power_off = std::mem::MaybeUninit::uninit();
@@ -144,10 +136,8 @@ impl Consolekit {
     ///
     /// ## `auth_reboot`
     /// location to store authorization or [`None`]
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_can_reboot")]
-    pub fn can_reboot(&self) -> Result<(Option<bool>, Option<bool>), glib::Error> {
+    pub fn can_reboot(&self) -> Result<(bool, bool), glib::Error> {
         unsafe {
             let mut can_reboot = std::mem::MaybeUninit::uninit();
             let mut auth_reboot = std::mem::MaybeUninit::uninit();
@@ -181,10 +171,8 @@ impl Consolekit {
     ///
     /// ## `auth_suspend`
     /// location to store authorization or [`None`]
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_can_suspend")]
-    pub fn can_suspend(&self) -> Result<(Option<bool>, Option<bool>), glib::Error> {
+    pub fn can_suspend(&self) -> Result<(bool, bool), glib::Error> {
         unsafe {
             let mut can_suspend = std::mem::MaybeUninit::uninit();
             let mut auth_suspend = std::mem::MaybeUninit::uninit();
@@ -214,8 +202,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// [`true`] if the D-Bus request was successful, [`false`] otherwise and `error` is set.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_hibernate")]
     pub fn hibernate(&self, polkit_interactive: bool) -> Result<(), glib::Error> {
         unsafe {
@@ -241,8 +227,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// [`true`] if the D-Bus request was successful, [`false`] otherwise and `error` is set.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_hybrid_sleep")]
     pub fn hybrid_sleep(&self, polkit_interactive: bool) -> Result<(), glib::Error> {
         unsafe {
@@ -268,8 +252,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// [`true`] if the D-Bus request was successful, [`false`] otherwise and `error` is set.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_power_off")]
     pub fn power_off(&self, polkit_interactive: bool) -> Result<(), glib::Error> {
         unsafe {
@@ -295,8 +277,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// [`true`] if the D-Bus request was successful, [`false`] otherwise and `error` is set.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_reboot")]
     pub fn reboot(&self, polkit_interactive: bool) -> Result<(), glib::Error> {
         unsafe {
@@ -322,8 +302,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// [`true`] if the D-Bus request was successful, [`false`] otherwise and `error` is set.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_suspend")]
     pub fn suspend(&self, polkit_interactive: bool) -> Result<(), glib::Error> {
         unsafe {
@@ -347,8 +325,6 @@ impl Consolekit {
     /// # Returns
     ///
     /// A reference to the singleton object, to be released with `g_object_unref()`.
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     #[doc(alias = "xfce_consolekit_get")]
     pub fn get() -> Consolekit {
         unsafe { from_glib_full(ffi::xfce_consolekit_get()) }

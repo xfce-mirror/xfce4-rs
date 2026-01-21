@@ -202,79 +202,57 @@ extern "C" {
     // XfceConsolekit
     //=========================================================================
     pub fn xfce_consolekit_get_type() -> GType;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_get() -> *mut XfceConsolekit;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_can_hibernate(
         consolekit: *mut XfceConsolekit,
         can_hibernate: *mut gboolean,
         auth_hibernate: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_can_hybrid_sleep(
         consolekit: *mut XfceConsolekit,
         can_hybrid_sleep: *mut gboolean,
         auth_hybrid_sleep: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_can_power_off(
         consolekit: *mut XfceConsolekit,
         can_power_off: *mut gboolean,
         auth_power_off: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_can_reboot(
         consolekit: *mut XfceConsolekit,
         can_reboot: *mut gboolean,
         auth_reboot: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_can_suspend(
         consolekit: *mut XfceConsolekit,
         can_suspend: *mut gboolean,
         auth_suspend: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_hibernate(
         consolekit: *mut XfceConsolekit,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_hybrid_sleep(
         consolekit: *mut XfceConsolekit,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_power_off(
         consolekit: *mut XfceConsolekit,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_reboot(
         consolekit: *mut XfceConsolekit,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_consolekit_suspend(
         consolekit: *mut XfceConsolekit,
         polkit_interactive: gboolean,
@@ -293,79 +271,57 @@ extern "C" {
     // XfceSystemd
     //=========================================================================
     pub fn xfce_systemd_get_type() -> GType;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_get() -> *mut XfceSystemd;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_can_hibernate(
         systemd: *mut XfceSystemd,
         can_hibernate: *mut gboolean,
         auth_hibernate: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_can_hybrid_sleep(
         systemd: *mut XfceSystemd,
         can_hybrid_sleep: *mut gboolean,
         auth_hybrid_sleep: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_can_power_off(
         systemd: *mut XfceSystemd,
         can_power_off: *mut gboolean,
         auth_power_off: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_can_reboot(
         systemd: *mut XfceSystemd,
         can_reboot: *mut gboolean,
         auth_reboot: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_can_suspend(
         systemd: *mut XfceSystemd,
         can_suspend: *mut gboolean,
         auth_suspend: *mut gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_hibernate(
         systemd: *mut XfceSystemd,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_hybrid_sleep(
         systemd: *mut XfceSystemd,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_power_off(
         systemd: *mut XfceSystemd,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_reboot(
         systemd: *mut XfceSystemd,
         polkit_interactive: gboolean,
         error: *mut *mut glib::GError,
     ) -> gboolean;
-    #[cfg(feature = "v4_19_1")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v4_19_1")))]
     pub fn xfce_systemd_suspend(
         systemd: *mut XfceSystemd,
         polkit_interactive: gboolean,
