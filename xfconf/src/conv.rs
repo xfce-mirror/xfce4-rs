@@ -22,13 +22,74 @@ macro_rules! impl_try_from_xfconf_value_int {
         impl TryFromXfconfValue for $ty {
             fn try_from_xfconf_value(value: &glib::Value) -> Result<Self, ConvError> {
                 match value.type_() {
-                    Type::U8 | Type::U32 | Type::U64 | Type::U_LONG => value
-                        .get::<u64>()
+                    Type::U8
+                    | Type::I8
+                    | Type::U32
+                    | Type::I32
+                    | Type::U64
+                    | Type::I64
+                    | Type::U_LONG
+                    | Type::I_LONG => value
+                        .transform::<$ty>()
                         .map_err(as_conv_error)
+                        .and_then(|v| v.get::<$ty>().map_err(as_conv_error)),
+                    Type::STRING => value
+                        .get::<&str>()
+                        .map_err(as_conv_error)
+                        .and_then(|v| v.parse::<$ty>().map_err(as_conv_error)),
+                    Type::BOOL => {
+                        value
+                            .get::<bool>()
+                            .map_err(as_conv_error)
+                            .map(|v| if v { 1 } else { 0 })
+                    }
+                    Type::FLAGS => {
+                        if std::mem::size_of::<$ty>() < std::mem::size_of::<u32>() {
+                            Err(ConvError::new("Flags type is too small to hold value"))
+                        } else {
+                            value
+                                .transform::<$ty>()
+                                .map_err(as_conv_error)
+                                .and_then(|v| v.get::<$ty>().map_err(as_conv_error))
+                        }
+                    }
+                    x if x == crate::XfconfGType::u16() => value
+                        .get_u16()
+                        .ok_or_else(|| ConvError::new("Value does not fit in a u16"))
+                        .and_then(|v| <$ty>::try_from(v).map_err(as_conv_error)),
+                    x if x == crate::XfconfGType::i16() => value
+                        .get_i16()
+                        .ok_or_else(|| ConvError::new("Value does not fit in an i16"))
+                        .and_then(|v| <$ty>::try_from(v).map_err(as_conv_error)),
+                    x => Err(ConvError::new(format!(
+                        "Value of type {} cannot be converted to a {}",
+                        x.name(),
+                        stringify!($ty)
+                    ))),
+                }
+            }
+
+            fn xfconf_display_name() -> &'static str {
+                stringify!($ty)
+            }
+        }
+    };
+}
+
+macro_rules! impl_try_from_xfconf_value_int16 {
+    ($ty:ty) => {
+        impl TryFromXfconfValue for $ty {
+            fn try_from_xfconf_value(value: &glib::Value) -> Result<Self, ConvError> {
+                match value.type_() {
+                    Type::U8 | Type::U32 | Type::U64 | Type::U_LONG => value
+                        .transform::<u64>()
+                        .map_err(as_conv_error)
+                        .and_then(|v| v.get::<u64>().map_err(as_conv_error))
                         .and_then(|v| <$ty>::try_from(v).map_err(as_conv_error)),
                     Type::I8 | Type::I32 | Type::I64 | Type::I_LONG => value
-                        .get::<i64>()
+                        .transform::<i64>()
                         .map_err(as_conv_error)
+                        .and_then(|v| v.get::<i64>().map_err(as_conv_error))
                         .and_then(|v| <$ty>::try_from(v).map_err(as_conv_error)),
                     Type::STRING => value
                         .get::<&str>()
@@ -45,8 +106,9 @@ macro_rules! impl_try_from_xfconf_value_int {
                             Err(ConvError::new("Flags type is too small to hold value"))
                         } else {
                             value
-                                .get::<u32>()
+                                .transform::<u32>()
                                 .map_err(as_conv_error)
+                                .and_then(|v| v.get::<u32>().map_err(as_conv_error))
                                 .and_then(|v| <$ty>::try_from(v).map_err(as_conv_error))
                         }
                     }
@@ -113,11 +175,11 @@ macro_rules! impl_to_xfconf_value_short {
 }
 
 impl_try_from_xfconf_value_int!(u8);
-impl_try_from_xfconf_value_int!(u16);
+impl_try_from_xfconf_value_int16!(u16);
 impl_try_from_xfconf_value_int!(u32);
 impl_try_from_xfconf_value_int!(u64);
 impl_try_from_xfconf_value_int!(i8);
-impl_try_from_xfconf_value_int!(i16);
+impl_try_from_xfconf_value_int16!(i16);
 impl_try_from_xfconf_value_int!(i32);
 impl_try_from_xfconf_value_int!(i64);
 impl_try_from_xfconf_value_simple!(String);
@@ -245,26 +307,13 @@ impl<T: TryFromXfconfValue> TryFromXfconfValue for Vec<T> {
             if !array_ptr.is_null() {
                 let values: Vec<glib::Value> =
                     unsafe { FromGlibPtrArrayContainerAsVec::from_glib_none_as_vec(array_ptr) };
-                let len = values.len();
-                let values = values
+                values
                     .into_iter()
-                    .flat_map(|v| {
-                        T::try_from_xfconf_value(&v)
-                            .map(|v| Some(v))
-                            .inspect_err(|err| {
-                                eprintln!("failed to convert a value in the vec: {err}");
-                            })
-                            .unwrap_or(None)
+                    .map(|v| T::try_from_xfconf_value(&v))
+                    .collect::<Result<Vec<T>, _>>()
+                    .map_err(|err| {
+                        ConvError::new(format!("Unable to convert all values in vec: {err}"))
                     })
-                    .collect::<Vec<T>>();
-                if values.len() != len {
-                    Err(ConvError::new(format!(
-                        "Unable to convert all values (had {len}, converted {})",
-                        values.len()
-                    )))
-                } else {
-                    Ok(values)
-                }
             } else {
                 Err(ConvError::new("Array pointer was NULL"))
             }
