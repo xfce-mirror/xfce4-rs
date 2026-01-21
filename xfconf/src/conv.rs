@@ -146,11 +146,9 @@ macro_rules! impl_to_xfconf_value_simple {
 }
 
 macro_rules! impl_to_xfconf_value_size {
-    ($ty:ty, $t64:ty, $t32:ty, $e16:ident, $t8:ty) => {
+    ($ty:ty, $t64:ty, $t32:ty, $e16:ident) => {
         impl ToXfconfValue for $ty {
             fn to_xfconf_value(&self) -> glib::Value {
-                #[cfg(target_pointer_width = "8")]
-                let value = (*self as $t8).to_value();
                 #[cfg(target_pointer_width = "16")]
                 let value = crate::XfconfGType::$e16(*self);
                 #[cfg(target_pointer_width = "32")]
@@ -332,12 +330,12 @@ impl_to_xfconf_value_simple!(u8);
 impl_to_xfconf_value_short!(u16, crate::XfconfGType::value_from_u16);
 impl_to_xfconf_value_simple!(u32);
 impl_to_xfconf_value_simple!(u64);
-impl_to_xfconf_value_size!(usize, u64, u32, value_from_u16, u8);
+impl_to_xfconf_value_size!(usize, u64, u32, value_from_u16);
 impl_to_xfconf_value_simple!(i8);
 impl_to_xfconf_value_short!(i16, crate::XfconfGType::value_from_i16);
 impl_to_xfconf_value_simple!(i32);
 impl_to_xfconf_value_simple!(i64);
-impl_to_xfconf_value_size!(isize, i64, i32, value_from_i16, i8);
+impl_to_xfconf_value_size!(isize, i64, i32, value_from_i16);
 impl_to_xfconf_value_simple!(f32);
 impl_to_xfconf_value_simple!(f64);
 impl_to_xfconf_value_simple!(String);
