@@ -33,15 +33,14 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
     fn get_property<V: TryFromXfconfValue>(&self, property: &str) -> Option<V> {
         channel_get_property(self.as_ref(), property).and_then(|v| {
             let ret = V::try_from_xfconf_value(&v);
-            if ret.is_none() {
+            if let Err(err) = &ret {
                 glib::g_warning!(
                     "xfconf",
-                    "Value for property '{}' could not be converted to type {}",
-                    property,
+                    "Value for property '{property}' could not be converted to type {}: {err}",
                     V::xfconf_display_name(),
                 );
             }
-            ret
+            ret.ok()
         })
     }
 

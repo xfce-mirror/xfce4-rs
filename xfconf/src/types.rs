@@ -1,9 +1,28 @@
+use std::fmt;
+
 use glib::{translate::*, value::ToValue, Type};
 
 use crate::conv::{gvalue_slice_to_gvalue, ptr_array_gtype};
 
+#[derive(Debug, Clone, PartialEq)]
+pub struct ConvError(String);
+
+impl ConvError {
+    pub fn new<S: AsRef<str>>(message: S) -> Self {
+        Self(message.as_ref().to_owned())
+    }
+}
+
+impl fmt::Display for ConvError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Value conversion failed: {}", self.0)
+    }
+}
+
+impl std::error::Error for ConvError {}
+
 pub trait TryFromXfconfValue: Sized {
-    fn try_from_xfconf_value(value: &glib::Value) -> Option<Self>;
+    fn try_from_xfconf_value(value: &glib::Value) -> Result<Self, ConvError>;
     fn xfconf_display_name() -> &'static str;
 }
 
@@ -76,8 +95,10 @@ pub struct Color {
     pub alpha: f64,
 }
 
-impl Color {
-    pub fn from_value(value: &glib::Value) -> Option<Self> {
+impl TryFrom<&glib::Value> for Color {
+    type Error = ConvError;
+
+    fn try_from(value: &glib::Value) -> Result<Self, Self::Error> {
         use glib::translate::*;
         use glib::{ffi as glib_ffi, gobject_ffi};
 
@@ -102,23 +123,23 @@ impl Color {
                             && blue.type_() == Type::F64
                             && alpha.type_() == Type::F64
                         {
-                            Some(Color {
+                            Ok(Color {
                                 red: red.get().unwrap(),
                                 green: green.get().unwrap(),
                                 blue: blue.get().unwrap(),
                                 alpha: alpha.get().unwrap(),
                             })
                         } else {
-                            None
+                            Err(ConvError::new("Wrong types for color component values"))
                         }
                     }
-                    _ => None,
+                    _ => Err(ConvError::new("Too few color components")),
                 }
             } else {
-                None
+                Err(ConvError::new("Color array was NULL"))
             }
         } else {
-            None
+            Err(ConvError::new("Color array was not a GPtrArray"))
         }
     }
 }
