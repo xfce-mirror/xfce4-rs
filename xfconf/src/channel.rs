@@ -10,6 +10,9 @@ pub trait ChannelExtManual {
     #[doc(alias = "xfconf_channel_get_property")]
     fn get_property<V: TryFromXfconfValue>(&self, property: &str) -> Option<V>;
 
+    #[doc(alias = "xfconf_channel_get_property")]
+    fn get_property_value(&self, property: &str) -> Option<glib::Value>;
+
     #[doc(alias = "xfconf_channel_set_property")]
     fn set_property<V: ToXfconfValue>(&self, property: &str, value: V) -> bool;
 }
@@ -31,7 +34,7 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
     }
 
     fn get_property<V: TryFromXfconfValue>(&self, property: &str) -> Option<V> {
-        channel_get_property(self.as_ref(), property).and_then(|v| {
+        self.get_property_value(property).and_then(|v| {
             let ret = V::try_from_xfconf_value(&v);
             if let Err(err) = &ret {
                 glib::g_warning!(
@@ -44,6 +47,40 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
         })
     }
 
+    fn get_property_value(&self, property: &str) -> Option<glib::Value> {
+        let mut value = glib::gobject_ffi::GValue {
+            g_type: glib::Type::INVALID.into_glib(),
+            data: [
+                glib::gobject_ffi::GValue_data { v_int: 0 },
+                glib::gobject_ffi::GValue_data { v_int: 0 },
+            ],
+        };
+
+        let ret: bool = unsafe {
+            from_glib(ffi::xfconf_channel_get_property(
+                self.as_ref().to_glib_none().0,
+                property.to_glib_none().0,
+                &mut value as *mut _,
+            ))
+        };
+        let ret = if !ret {
+            None
+        } else {
+            let value: glib::Value = unsafe { from_glib_none(&mut value as *mut _) };
+            if value.type_().is_valid() {
+                Some(value)
+            } else {
+                None
+            }
+        };
+
+        unsafe {
+            glib::gobject_ffi::g_value_unset(&mut value as *mut _);
+        }
+
+        ret
+    }
+
     fn set_property<V: ToXfconfValue>(&self, property: &str, value: V) -> bool {
         unsafe {
             from_glib(ffi::xfconf_channel_set_property(
@@ -53,40 +90,6 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
             ))
         }
     }
-}
-
-fn channel_get_property(channel: &Channel, property: &str) -> Option<glib::Value> {
-    let mut value = glib::gobject_ffi::GValue {
-        g_type: glib::Type::INVALID.into_glib(),
-        data: [
-            glib::gobject_ffi::GValue_data { v_int: 0 },
-            glib::gobject_ffi::GValue_data { v_int: 0 },
-        ],
-    };
-
-    let ret: bool = unsafe {
-        from_glib(ffi::xfconf_channel_get_property(
-            channel.to_glib_none().0,
-            property.to_glib_none().0,
-            &mut value as *mut _,
-        ))
-    };
-    let ret = if !ret {
-        None
-    } else {
-        let value: glib::Value = unsafe { from_glib_none(&mut value as *mut _) };
-        if value.type_().is_valid() {
-            Some(value)
-        } else {
-            None
-        }
-    };
-
-    unsafe {
-        glib::gobject_ffi::g_value_unset(&mut value as *mut _);
-    }
-
-    ret
 }
 
 unsafe fn ghashtable_into_hashmap_string_value(
