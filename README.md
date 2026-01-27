@@ -8,12 +8,12 @@ Experimental bindings of Xfce libraries for the Rust programming language. There
 
 | Library | Support |
 | ------ | ------ |
-| exo | TODO |
 | garcon | TODO |
 | libxfce4panel | TODO |
-| thunarx | TODO |
 | libxfce4ui | TODO |
 | libxfce4util | WIP |
+| libxfce4windowing | TODO |
+| thunarx | TODO |
 | xfconf | WIP |
 
 ### How to use
