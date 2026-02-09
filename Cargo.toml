@@ -9,3 +9,6 @@ exclude = [
     "gir",
 ]
 resolver = "2"
+
+[workspace.package]
+license = "LGPL-2.1-only"

@@ -2,6 +2,7 @@
 name = "libxfce4util-sys"
 version = "0.0.1"
 edition = "2021"
+license.workspace = true
 build = "build.rs"
 
 [package.metadata.system-deps.libxfce4util_1]

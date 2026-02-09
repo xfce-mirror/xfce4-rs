@@ -2,6 +2,7 @@
 name = "xfconf-sys"
 version = "0.0.1"
 edition = "2021"
+license.workspace = true
 build = "build.rs"
 
 [package.metadata.system-deps.libxfconf_0]

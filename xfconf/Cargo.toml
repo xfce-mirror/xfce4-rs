@@ -2,6 +2,7 @@
 name = "xfconf"
 version = "0.1.0"
 edition = "2021"
+license.workspace = true
 
 [package.metadata.docs.rs]
 all-features = true
