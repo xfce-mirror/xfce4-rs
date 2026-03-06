@@ -1,0 +1,1131 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Libxfce4ui" version="2.0"/>
+  <include name="Libxfce4util" version="1.0"/>
+  <package name="libxfce4kbd-private-3"/>
+  <doc:format name="unknown"/>
+  <namespace name="Libxfce4kbdprivate"
+             version="3.0"
+             shared-library="libxfce4kbd-private-3.so.0"
+             c:identifier-prefixes="Xfce"
+             c:symbol-prefixes="xfce">
+    <function-macro name="IS_SHORTCUTS_EDITOR"
+                    c:identifier="XFCE_IS_SHORTCUTS_EDITOR"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_EDITOR_CLASS"
+                    c:identifier="XFCE_IS_SHORTCUTS_EDITOR_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_EDITOR_DIALOG"
+                    c:identifier="XFCE_IS_SHORTCUTS_EDITOR_DIALOG"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_EDITOR_DIALOG_CLASS"
+                    c:identifier="XFCE_IS_SHORTCUTS_EDITOR_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_GRABBER"
+                    c:identifier="XFCE_IS_SHORTCUTS_GRABBER"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_GRABBER_CLASS"
+                    c:identifier="XFCE_IS_SHORTCUTS_GRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_PROVIDER"
+                    c:identifier="XFCE_IS_SHORTCUTS_PROVIDER"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUTS_PROVIDER_CLASS"
+                    c:identifier="XFCE_IS_SHORTCUTS_PROVIDER_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUT_DIALOG"
+                    c:identifier="XFCE_IS_SHORTCUT_DIALOG"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SHORTCUT_DIALOG_CLASS"
+                    c:identifier="XFCE_IS_SHORTCUT_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR_DIALOG"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR_DIALOG"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR_DIALOG_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR_DIALOG_GET_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR_DIALOG_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_EDITOR_GET_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_EDITOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_GRABBER"
+                    c:identifier="XFCE_SHORTCUTS_GRABBER"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_GRABBER_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_GRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_GRABBER_GET_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_GRABBER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_PROVIDER"
+                    c:identifier="XFCE_SHORTCUTS_PROVIDER"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_PROVIDER_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_PROVIDER_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUTS_PROVIDER_GET_CLASS"
+                    c:identifier="XFCE_SHORTCUTS_PROVIDER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUT_DIALOG"
+                    c:identifier="XFCE_SHORTCUT_DIALOG"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUT_DIALOG_CLASS"
+                    c:identifier="XFCE_SHORTCUT_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SHORTCUT_DIALOG_GET_CLASS"
+                    c:identifier="XFCE_SHORTCUT_DIALOG_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Shortcut"
+            c:type="XfceShortcut"
+            glib:type-name="XfceShortcut"
+            glib:get-type="xfce_shortcut_get_type"
+            c:symbol-prefix="shortcut">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="113"/>
+      <field name="property_name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="shortcut" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="command" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="snotify" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <method name="copy" c:identifier="xfce_shortcut_copy">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
+               line="744">A newly-allocated #XfceShortcut, which should be
+freed with xfce_shortcut_free() when no longer needed.</doc>
+          <type name="Shortcut" c:type="XfceShortcut*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="shortcut" transfer-ownership="none">
+            <type name="Shortcut" c:type="XfceShortcut*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="xfce_shortcut_free">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="shortcut" transfer-ownership="full">
+            <type name="Shortcut" c:type="XfceShortcut*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="conflict_dialog"
+                c:identifier="xfce_shortcut_conflict_dialog">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts.h"
+                         line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="owner" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="other" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="owner_action" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="other_action" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="ignore_same_provider" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <class name="ShortcutDialog"
+           c:symbol-prefix="shortcut_dialog"
+           c:type="XfceShortcutDialog"
+           parent="Libxfce4ui.TitledDialog"
+           glib:type-name="XfceShortcutDialog"
+           glib:get-type="xfce_shortcut_dialog_get_type"
+           glib:type-struct="ShortcutDialogClass">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="28"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="xfce_shortcut_dialog_new">
+        <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_action" c:identifier="xfce_shortcut_dialog_get_action">
+        <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="ShortcutDialog" c:type="XfceShortcutDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_action_name"
+              c:identifier="xfce_shortcut_dialog_get_action_name">
+        <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <type name="ShortcutDialog" c:type="XfceShortcutDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_shortcut"
+              c:identifier="xfce_shortcut_dialog_get_shortcut">
+        <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="dialog" transfer-ownership="none">
+            <type name="ShortcutDialog" c:type="XfceShortcutDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="run" c:identifier="xfce_shortcut_dialog_run">
+        <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="dialog" transfer-ownership="none">
+            <type name="ShortcutDialog" c:type="XfceShortcutDialog*"/>
+          </instance-parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="validate-shortcut" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ShortcutDialogClass"
+            c:type="XfceShortcutDialogClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ShortcutDialog">
+      <source-position filename="libxfce4kbd-private/xfce-shortcut-dialog.h"
+                       line="28"/>
+    </record>
+    <class name="ShortcutsEditor"
+           c:symbol-prefix="shortcuts_editor"
+           c:type="XfceShortcutsEditor"
+           parent="Gtk.Box"
+           glib:type-name="XfceShortcutsEditor"
+           glib:get-type="xfce_shortcuts_editor_get_type"
+           glib:type-struct="ShortcutsEditorClass">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="29"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="xfce_shortcuts_editor_new"
+                   version="4.17.2"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+             line="163">A variable arguments version of xfce_shortcuts_editor_new_variadic.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argument_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="165">#int, the number of arguments, including this one.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_array"
+                   c:identifier="xfce_shortcuts_editor_new_array"
+                   version="4.17.5">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+             line="188">A vectorized version of xfce_shortcuts_editor_new.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="sections" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="190">an array of XfceShortcutsEditorSection triads (see
+              xfce_shortcuts_editor_new_variadic for a description).</doc>
+            <type name="ShortcutsEditorSection"
+                  c:type="XfceShortcutsEditorSection*"/>
+          </parameter>
+          <parameter name="n_sections" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="192">#int, the size of the array.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_variadic"
+                   c:identifier="xfce_shortcuts_editor_new_variadic"
+                   version="4.17.2"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+             line="225">Create a new Shortcuts Editor from XfceGtkActionEntry arrays.
+
+The @argument_list consists of triads of arguments.
+The types of a triad are the following: (gchar*, XfceGtkActionEntry[], size_t).
+
+The first member of a triad is the name of the section in the editor. Specify
+%NULL or an empty string so that no section appears.
+The second member of a triad is the array of XfceGtkActionEntries which are
+used to handle the shortcuts.
+The third member is the size of that array.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argument_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="227">#int, the number of arguments, including this one.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="argument_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="228">a #va_list containing the arguments</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_overlap_group"
+              c:identifier="xfce_shortcuts_editor_add_overlap_group"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+             line="273">Adds an overlap group to @editor, which consists of a list of
+#XfceShortcutsEditorSection indexes. Within actions inside all sections of
+the group, there may be duplicate shortcuts set.
+
+Don't forget the terminating -1 at the end of the variable list of indexes.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="editor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="275">A #XfceShortcutsEditor.</doc>
+            <type name="ShortcutsEditor" c:type="XfceShortcutsEditor*"/>
+          </instance-parameter>
+          <parameter name="first_section_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="276">The first index in the array of #XfceShortcutsEditorSection.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="277">Other indexes that should be in the group, as ints, terminated with -1.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_overlap_group_array"
+              c:identifier="xfce_shortcuts_editor_add_overlap_group_array">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+             line="329">Adds an overlap group to @editor, which consists of a list of
+#XfceShortcutsEditorSection indexes.  Within actions inside all sections of
+the group, there may be duplicate shortcuts set.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="editor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="331">A #XfceShortcutsEditor.</doc>
+            <type name="ShortcutsEditor" c:type="XfceShortcutsEditor*"/>
+          </instance-parameter>
+          <parameter name="section_indexes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="332">An array of indexes.</doc>
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+          <parameter name="n_section_indexes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor.c"
+                 line="333">The count of elements in @section_indexes.</doc>
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ShortcutsEditorClass"
+            c:type="XfceShortcutsEditorClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ShortcutsEditor">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="29"/>
+    </record>
+    <class name="ShortcutsEditorDialog"
+           c:symbol-prefix="shortcuts_editor_dialog"
+           c:type="XfceShortcutsEditorDialog"
+           parent="Libxfce4ui.TitledDialog"
+           glib:type-name="XfceShortcutsEditorDialog"
+           glib:get-type="xfce_shortcuts_editor_dialog_get_type"
+           glib:type-struct="ShortcutsEditorDialogClass">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="28"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="xfce_shortcuts_editor_dialog_new"
+                   version="4.17.2"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.c"
+             line="70">Returns a dialog that includes a XfceShortcutsEditor.
+See xfce_shortcuts_editor_new_variadic for the expected types of the variable argument list.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argument_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.c"
+                 line="72">#int, the number of arguments, including this one.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_parent"
+                   c:identifier="xfce_shortcuts_editor_dialog_new_with_parent"
+                   version="4.17.5"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.c"
+             line="103">Returns a dialog that includes a XfceShortcutsEditor.
+See xfce_shortcuts_editor_new_variadic for the expected types of the variable argument list.</doc>
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.c"
+                 line="105">#GtkWindow, the parent window of the dialog, used in gtk_window_set_transient_for (can be NULL).</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="argument_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.c"
+                 line="106">#int, the number of arguments, including this one.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="ShortcutsEditorDialogClass"
+            c:type="XfceShortcutsEditorDialogClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ShortcutsEditorDialog">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor-dialog.h"
+                       line="28"/>
+    </record>
+    <record name="ShortcutsEditorSection" c:type="XfceShortcutsEditorSection">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-editor.h"
+                       line="44"/>
+      <field name="section_name" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="entries" writable="1">
+        <type name="Libxfce4ui.GtkActionEntry" c:type="XfceGtkActionEntry*"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="gsize" c:type="size_t"/>
+      </field>
+    </record>
+    <class name="ShortcutsGrabber"
+           c:symbol-prefix="shortcuts_grabber"
+           c:type="XfceShortcutsGrabber"
+           parent="GObject.Object"
+           glib:type-name="XfceShortcutsGrabber"
+           glib:get-type="xfce_shortcuts_grabber_get_type"
+           glib:type-struct="ShortcutsGrabberClass">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="56"/>
+      <constructor name="new" c:identifier="xfce_shortcuts_grabber_new">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <type name="ShortcutsGrabber" c:type="XfceShortcutsGrabber*"/>
+        </return-value>
+      </constructor>
+      <method name="add" c:identifier="xfce_shortcuts_grabber_add">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="ShortcutsGrabber" c:type="XfceShortcutsGrabber*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="xfce_shortcuts_grabber_remove">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="ShortcutsGrabber" c:type="XfceShortcutsGrabber*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ShortcutsGrabberPrivate"
+              c:type="XfceShortcutsGrabberPrivate*"/>
+      </field>
+      <glib:signal name="shortcut-activated" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ShortcutsGrabberClass"
+            c:type="XfceShortcutsGrabberClass"
+            glib:is-gtype-struct-for="ShortcutsGrabber">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="56"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ShortcutsGrabberPrivate"
+            c:type="XfceShortcutsGrabberPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-grabber.h"
+                       line="28"/>
+    </record>
+    <class name="ShortcutsProvider"
+           c:symbol-prefix="shortcuts_provider"
+           c:type="XfceShortcutsProvider"
+           parent="GObject.Object"
+           glib:type-name="XfceShortcutsProvider"
+           glib:get-type="xfce_shortcuts_provider_get_type"
+           glib:type-struct="ShortcutsProviderClass">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="91"/>
+      <constructor name="new" c:identifier="xfce_shortcuts_provider_new">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
+               line="330">A new #XfceShortcutsProvider, which should be
+freed with g_object_unref() when no longer needed.</doc>
+          <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="free_providers"
+                c:identifier="xfce_shortcuts_provider_free_providers">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="providers" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="ShortcutsProvider"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_providers"
+                c:identifier="xfce_shortcuts_provider_get_providers">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
+               line="344">A #GList of
+#XfceShortcutsProvider items, which should be freed with
+xfce_shortcuts_provider_free_providers() when no longer needed.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ShortcutsProvider"/>
+          </type>
+        </return-value>
+      </function>
+      <method name="clone_defaults"
+              c:identifier="xfce_shortcuts_provider_clone_defaults">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="xfce_shortcuts_provider_get_name"
+              glib:get-property="name">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_shortcut"
+              c:identifier="xfce_shortcuts_provider_get_shortcut">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
+               line="581">A newly-allocated #XfceShortcut, which should be
+freed with xfce_shortcut_free() when no longer needed.</doc>
+          <type name="Shortcut" c:type="XfceShortcut*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_shortcuts"
+              c:identifier="xfce_shortcuts_provider_get_shortcuts">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
+               line="543">A #GList of
+#XfceShortcut items, which should be freed with xfce_shortcuts_free() when
+no longer needed.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Shortcut"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_shortcut"
+              c:identifier="xfce_shortcuts_provider_has_shortcut">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_custom"
+              c:identifier="xfce_shortcuts_provider_is_custom">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset_shortcut"
+              c:identifier="xfce_shortcuts_provider_reset_shortcut">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset_to_defaults"
+              c:identifier="xfce_shortcuts_provider_reset_to_defaults">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_shortcut"
+              c:identifier="xfce_shortcuts_provider_set_shortcut">
+        <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
+          </instance-parameter>
+          <parameter name="shortcut" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="command" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="snotify" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="__parent__">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="ShortcutsProviderPrivate"
+              c:type="XfceShortcutsProviderPrivate*"/>
+      </field>
+      <glib:signal name="shortcut-added" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="shortcut-removed" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ShortcutsProviderClass"
+            c:type="XfceShortcutsProviderClass"
+            glib:is-gtype-struct-for="ShortcutsProvider">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="91"/>
+      <field name="__parent__">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ShortcutsProviderPrivate"
+            c:type="XfceShortcutsProviderPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="30"/>
+    </record>
+    <function name="shortcut_conflict_dialog"
+              c:identifier="xfce_shortcut_conflict_dialog"
+              moved-to="Shortcut.conflict_dialog">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts.h"
+                       line="29"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="owner" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="other" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="shortcut" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="owner_action" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="other_action" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="ignore_same_provider" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shortcuts_free" c:identifier="xfce_shortcuts_free">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
+                       line="80"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="shortcuts" transfer-ownership="none">
+          <type name="GLib.List" c:type="GList*">
+            <type name="Shortcut"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shortcuts_xfwm4_get_feature_list"
+              c:identifier="xfce_shortcuts_xfwm4_get_feature_list">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-xfwm4.h"
+                       line="30"/>
+      <return-value transfer-ownership="container">
+        <doc xml:space="preserve"
+             filename="libxfce4kbd-private/xfce-shortcuts-xfwm4.c"
+             line="146">A newly-allocated
+#GList, which should be freed with g_list_free() when no longer needed.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="shortcuts_xfwm4_get_feature_name"
+              c:identifier="xfce_shortcuts_xfwm4_get_feature_name">
+      <source-position filename="libxfce4kbd-private/xfce-shortcuts-xfwm4.h"
+                       line="28"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="feature" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,31 @@
+[options]
+library = "Libxfce4kbdprivate"
+version = "3.0"
+min_cfg_version = "4.20"
+target_path = "."
+girs_directories = [
+    "../gir-files.xfce/",
+    "../gir-filex.gtk/",
+]
+work_mode = "normal"
+single_version_file = true
+generate_safety_asserts = false
+deprecate_by_min_version = true
+trust_return_value_nullability = true
+
+generate = [
+    "Libxfce4kbdprivate.Shortcut",
+]
+
+manual = [
+    "GLib.Error",
+    "GObject.Object",
+    "GObject.Value",
+]
+
+[[object]]
+name = "Libxfce4kbdprivate.ShortcutsProvider"
+status = "generate"
+    [[object.function]]
+    name = "free_providers"
+    ignore = true

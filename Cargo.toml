@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "libxfce4kbd-private",
+    "libxfce4kbd-private/sys",
     "libxfce4util",
     "libxfce4util/sys",
     "xfconf",
