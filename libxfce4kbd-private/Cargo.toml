@@ -1,0 +1,21 @@
+[package]
+name = "libxfce4kbd-private"
+version = "0.1.0"
+edition = "2021"
+license.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+# For build.rs scripts
+rustc-args = ["--cfg", "docsrs"]
+# For rustdoc
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+bitflags = "2.2"
+ffi = { package = "libxfce4kbd-private-sys", path = "sys" }
+glib = "0.18"
+libc = "0.2"
+
+[dev-dependencies]
+regex = "1.10.4"

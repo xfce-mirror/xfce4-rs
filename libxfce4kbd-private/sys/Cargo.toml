@@ -1,0 +1,36 @@
+[package]
+name = "libxfce4kbd-private-sys"
+version = "0.0.1"
+edition = "2021"
+license.workspace = true
+build = "build.rs"
+
+[package.metadata.system-deps.libxfce4kbd_private_3]
+name = "libxfce4kbd-private-3"
+version = "4.20"
+
+[package.metadata.docs.rs]
+rustc-args = ["--cfg", "docsrs"]
+rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+all-features = true
+features = ["dox"]
+
+[lib]
+name = "libxfce4kbdprivate_sys"
+
+[dependencies]
+glib-sys = "0.18"
+gobject-sys = "0.18"
+gtk-sys = "0.18"
+libc = "0.2"
+libxfce4ui = { package = "libxfce4ui-sys", path = "../../libxfce4ui/sys" }
+
+[build-dependencies]
+system-deps = "6"
+
+[dev-dependencies]
+shell-words = "1.0.0"
+tempfile = "3"
+
+[features]
+dox = []

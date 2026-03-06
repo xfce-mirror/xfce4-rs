@@ -1,0 +1,51 @@
+[package]
+name = "libxfce4ui-sys"
+version = "0.0.1"
+edition = "2021"
+license.workspace = true
+build = "build.rs"
+
+[package.metadata.system-deps.libxfce4ui_2]
+name = "libxfce4ui-2"
+version = "4.20"
+
+[package.metadata.system-deps.libxfce4ui_2.v4_21]
+version = "4.21"
+
+[package.metadata.system-deps.libxfce4ui_2.v4_21_1]
+version = "4.21.1"
+
+#[package.metadata.system-deps.libxfce4ui_2.v4_21_3]
+#version = "4.21.3"
+
+[package.metadata.docs.rs]
+rustc-args = ["--cfg", "docsrs"]
+rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+all-features = true
+features = ["dox"]
+
+[lib]
+name = "libxfce4ui_sys"
+
+[dependencies]
+cairo = { package = "cairo-sys-rs", version = "0.18" }
+gdk = { package = "gdk-sys", version = "0.18" }
+gdk-pixbuf = { package = "gdk-pixbuf-sys", version = "0.18" }
+gio = { package = "gio-sys", version = "0.18" }
+glib-sys = "0.18"
+gobject-sys = "0.18"
+gtk-sys = "0.18"
+libc = "0.2"
+
+[build-dependencies]
+system-deps = "6"
+
+[dev-dependencies]
+shell-words = "1.0.0"
+tempfile = "3"
+
+[features]
+v4_21 = []
+v4_21_1 = ["v4_21"]
+#v4_21_3 = ["v4_21", "v4_21_1"]
+dox = []
