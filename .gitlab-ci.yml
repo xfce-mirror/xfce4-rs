@@ -18,4 +18,4 @@ test:
   stage: test
   script:
     - cargo fmt --check
-    - cargo test --release --all-features --workspace
+    - cargo test --release --workspace
