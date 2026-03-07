@@ -16,10 +16,14 @@ use gio_sys as gio;
 use glib_sys as glib;
 use gobject_sys as gobject;
 
+#[cfg(unix)]
 #[allow(unused_imports)]
-use libc::{
+use libc::{dev_t, gid_t, pid_t, socklen_t, uid_t};
+#[allow(unused_imports)]
+use libc::{intptr_t, off_t, size_t, ssize_t, time_t, uintptr_t, FILE};
+#[allow(unused_imports)]
+use std::ffi::{
     c_char, c_double, c_float, c_int, c_long, c_short, c_uchar, c_uint, c_ulong, c_ushort, c_void,
-    intptr_t, size_t, ssize_t, uintptr_t, FILE,
 };
 
 #[allow(unused_imports)]
@@ -77,6 +81,7 @@ impl ::std::fmt::Debug for XfceKioskClass {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct XfceRc {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -104,6 +109,7 @@ impl ::std::fmt::Debug for XfceSystemdClass {
 
 // Classes
 #[repr(C)]
+#[allow(dead_code)]
 pub struct XfceConsolekit {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -117,6 +123,7 @@ impl ::std::fmt::Debug for XfceConsolekit {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct XfceKiosk {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -129,6 +136,7 @@ impl ::std::fmt::Debug for XfceKiosk {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct XfceSystemd {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -140,8 +148,7 @@ impl ::std::fmt::Debug for XfceSystemd {
     }
 }
 
-#[link(name = "xfce4util")]
-extern "C" {
+unsafe extern "C" {
 
     //=========================================================================
     // XfceRc

@@ -14,9 +14,7 @@ deprecate_by_min_version = true
 trust_return_value_nullability = true
 
 generate = [
-    "Libxfce4util.Consolekit",
     "Libxfce4util.Kiosk",
-    "Libxfce4util.Systemd",
 ]
 
 manual = [
@@ -35,3 +33,53 @@ manual_traits = "Libxfce4utilExtManual"
     [[object.function]]
     name = "expand_variables"
     ignore = true
+
+[[object]]
+name = "Libxfce4util.Consolekit"
+status = "generate"
+manual_traits = "ConsolekitExtManual"
+    [[object.function]]
+    name = "can_hibernate"
+    manual = true
+    doc_trait_name = "ConsolekitExtManual"
+    [[object.function]]
+    name = "can_hybrid_sleep"
+    manual = true
+    doc_trait_name = "ConsolekitExtManual"
+    [[object.function]]
+    name = "can_power_off"
+    manual = true
+    doc_trait_name = "ConsolekitExtManual"
+    [[object.function]]
+    name = "can_reboot"
+    manual = true
+    doc_trait_name = "ConsolekitExtManual"
+    [[object.function]]
+    name = "can_suspend"
+    manual = true
+    doc_trait_name = "ConsolekitExtManual"
+
+[[object]]
+name = "Libxfce4util.Systemd"
+status = "generate"
+manual_traits = "SystemdExtManual"
+    [[object.function]]
+    name = "can_hibernate"
+    manual = true
+    doc_trait_name = "SystemdExtManual"
+    [[object.function]]
+    name = "can_hybrid_sleep"
+    manual = true
+    doc_trait_name = "SystemdExtManual"
+    [[object.function]]
+    name = "can_power_off"
+    manual = true
+    doc_trait_name = "SystemdExtManual"
+    [[object.function]]
+    name = "can_reboot"
+    manual = true
+    doc_trait_name = "SystemdExtManual"
+    [[object.function]]
+    name = "can_suspend"
+    manual = true
+    doc_trait_name = "SystemdExtManual"

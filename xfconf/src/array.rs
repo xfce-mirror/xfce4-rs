@@ -14,31 +14,17 @@ static G_TYPE_PTR_ARRAY: LazyLock<glib::Type> = LazyLock::new(|| {
     unsafe { glib::Type::from_glib(glib::ffi::g_ptr_array_get_type()) }
 });
 
-/// Wraps a Vec<T> for use with xfconf.
-///
-/// Xfconf supports array types (using `GPtrArray`, which is not exposed in the Rust glib
-/// bindings), but `glib::Value` does not expose any native boxed array type.
-///
-/// `Array` allows you to retrieve and use array properties from places where they xfconf API
-/// returns a `glib::Value` rather than the actual type.
-///
-/// `Array`, via `Deref` and `DerefMut`, can be used exactly like a `Vec`.  You can also convert
-/// between an `Array<T>` and `Vec<T>` using `::from()` and `.into()`, or consume the `Array` and
-/// return the `Vec` with `Array::into_inner()`.
 pub struct Array<T>(Vec<T>);
 
 impl<T> Array<T> {
-    /// Returns a reference to the elements in the array.
     pub fn inner(&self) -> &[T] {
         &self.0
     }
 
-    /// Returns a mutable reference to the elements in the array.
     pub fn inner_mut(&mut self) -> &mut [T] {
         &mut self.0
     }
 
-    /// Consumes the `Array`, returning `Vec` of its contents.
     pub fn into_inner(self) -> Vec<T> {
         self.0
     }

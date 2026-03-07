@@ -3,6 +3,7 @@
 // from gir-files.xfce
 // DO NOT EDIT
 
+use crate::ffi;
 use glib::translate::*;
 
 /// Creates the shared thumbnail path for the file that corresponds to the given `uri`
@@ -312,22 +313,24 @@ pub fn posix_signal_handler_set_handler<P: FnMut(i32)>(
     signal: i32,
     handler: P,
 ) -> Result<(), glib::Error> {
-    let handler_data: P = handler;
+    let mut handler_data: P = handler;
     unsafe extern "C" fn handler_func<P: FnMut(i32)>(
-        signal: libc::c_int,
+        signal: std::ffi::c_int,
         user_data: glib::ffi::gpointer,
     ) {
-        let callback = user_data as *mut P;
-        (*callback)(signal)
+        unsafe {
+            let callback = user_data as *mut P;
+            (*callback)(signal)
+        }
     }
     let handler = Some(handler_func::<P> as _);
-    let super_callback0: &P = &handler_data;
+    let super_callback0: &mut P = &mut handler_data;
     unsafe {
         let mut error = std::ptr::null_mut();
         let is_ok = ffi::xfce_posix_signal_handler_set_handler(
             signal,
             handler,
-            super_callback0 as *const _ as *mut _,
+            super_callback0 as *mut _ as *mut _,
             &mut error,
         );
         debug_assert_eq!(is_ok == glib::ffi::GFALSE, !error.is_null());

@@ -2,8 +2,10 @@
 name = "libxfce4kbd-private-sys"
 version = "0.0.1"
 edition = "2021"
-license.workspace = true
 build = "build.rs"
+
+[package.license]
+workspace = true
 
 [package.metadata.system-deps.libxfce4kbd_private_3]
 name = "libxfce4kbd-private-3"
@@ -23,10 +25,13 @@ glib-sys = "0.18"
 gobject-sys = "0.18"
 gtk-sys = "0.18"
 libc = "0.2"
-libxfce4ui = { package = "libxfce4ui-sys", path = "../../libxfce4ui/sys" }
+
+[dependencies.libxfce4ui]
+package = "libxfce4ui-sys"
+path = "../../libxfce4ui/sys"
 
 [build-dependencies]
-system-deps = "6"
+system-deps = "7"
 
 [dev-dependencies]
 shell-words = "1.0.0"

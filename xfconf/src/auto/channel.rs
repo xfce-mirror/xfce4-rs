@@ -3,7 +3,9 @@
 // from gir-files.xfce
 // DO NOT EDIT
 
+use crate::ffi;
 use glib::{
+    object::ObjectType as _,
     prelude::*,
     signal::{connect_raw, SignalHandlerId},
     translate::*,
@@ -235,27 +237,31 @@ impl Channel {
             F: Fn(&Channel, &str, &glib::Value) + 'static,
         >(
             this: *mut ffi::XfconfChannel,
-            property: *mut libc::c_char,
+            property: *mut std::ffi::c_char,
             value: *mut glib::gobject_ffi::GValue,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(
-                &from_glib_borrow(this),
-                &glib::GString::from_glib_borrow(property),
-                &from_glib_borrow(value),
-            )
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(
+                    &from_glib_borrow(this),
+                    &glib::GString::from_glib_borrow(property),
+                    &from_glib_borrow(value),
+                )
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
             let detailed_signal_name = detail.map(|name| format!("property-changed::{name}\0"));
-            let signal_name: &[u8] = detailed_signal_name
+            let signal_name = detailed_signal_name
                 .as_ref()
-                .map_or(&b"property-changed\0"[..], |n| n.as_bytes());
+                .map_or(c"property-changed", |n| {
+                    std::ffi::CStr::from_bytes_with_nul_unchecked(n.as_bytes())
+                });
             connect_raw(
                 self.as_ptr() as *mut _,
-                signal_name.as_ptr() as *const _,
-                Some(std::mem::transmute::<_, unsafe extern "C" fn()>(
+                signal_name.as_ptr(),
+                Some(std::mem::transmute::<*const (), unsafe extern "C" fn()>(
                     property_changed_trampoline::<F> as *const (),
                 )),
                 Box_::into_raw(f),

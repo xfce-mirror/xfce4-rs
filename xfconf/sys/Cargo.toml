@@ -2,8 +2,10 @@
 name = "xfconf-sys"
 version = "0.0.1"
 edition = "2021"
-license.workspace = true
 build = "build.rs"
+
+[package.license]
+workspace = true
 
 [package.metadata.system-deps.libxfconf_0]
 name = "libxfconf-0"
@@ -24,7 +26,7 @@ gobject-sys = "0.18"
 libc = "0.2"
 
 [build-dependencies]
-system-deps = "6"
+system-deps = "7"
 
 [dev-dependencies]
 shell-words = "1.0.0"

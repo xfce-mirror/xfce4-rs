@@ -3,6 +3,7 @@
 // from gir-files.xfce
 // DO NOT EDIT
 
+use crate::ffi;
 use glib::translate::*;
 
 /// Initializes the Xfconf library. Can be called multiple times with no
