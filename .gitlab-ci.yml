@@ -1,4 +1,4 @@
-image: rust:1.88.0-slim-trixie
+image: docker.io/kelnos/xfce-rust-build:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -12,28 +12,10 @@ workflow:
     - if: $CI_MERGE_REQUEST_IID
 
 stages:
-  - style
   - test
-
-# TODO: enable clippy once warnings are fixed
-style:
-  stage: style
-  before_script:
-    - !reference [.install-rust, before_script]
-  script:
-#    - cargo clippy --no-deps -- -D warnings
-    - cargo fmt --check
 
 test:
   stage: test
-  before_script:
-    - !reference [.install-rust, before_script]
   script:
+    - cargo fmt --check
     - cargo test --release --all-features --workspace
-
-.install-rust:
-  before_script:
-    - DEBIAN_FRONTEND=noninteractive apt-get update
-    - DEBIAN_FRONTEND=noninteractive apt-get install -y libxfce4util-dev libxfconf-0-dev
-    - DEBIAN_FRONTEND=noninteractive apt-get clean
-    - rustup component add rustfmt
