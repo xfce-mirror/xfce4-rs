@@ -222,6 +222,8 @@ unsafe extern "C" {
     // XfceShortcut
     //=========================================================================
     pub fn xfce_shortcut_get_type() -> GType;
+    #[cfg(feature = "v4_21_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
     pub fn xfce_shortcut_copy(shortcut: *mut XfceShortcut) -> *mut XfceShortcut;
     pub fn xfce_shortcut_free(shortcut: *mut XfceShortcut);
     pub fn xfce_shortcut_conflict_dialog(

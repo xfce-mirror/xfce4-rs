@@ -11,6 +11,9 @@ workspace = true
 name = "libxfce4kbd-private-3"
 version = "4.20"
 
+[package.metadata.system-deps.libxfce4kbd_private_3.v4_21_4]
+version = "4.21.4"
+
 [package.metadata.docs.rs]
 rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
@@ -39,3 +42,4 @@ tempfile = "3"
 
 [features]
 dox = []
+v4_21_4 = []

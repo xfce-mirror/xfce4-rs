@@ -3,12 +3,22 @@
 // from gir-files.xfce
 // DO NOT EDIT
 
+#[cfg(feature = "v4_21_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
 mod shortcuts_provider;
+#[cfg(feature = "v4_21_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
 pub use self::shortcuts_provider::ShortcutsProvider;
 
+#[cfg(feature = "v4_21_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
 mod shortcut;
+#[cfg(feature = "v4_21_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
 pub use self::shortcut::Shortcut;
 
 pub(crate) mod traits {
+    #[cfg(feature = "v4_21_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v4_21_4")))]
     pub use super::shortcuts_provider::ShortcutsProviderExt;
 }

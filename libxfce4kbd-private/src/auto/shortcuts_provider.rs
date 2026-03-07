@@ -180,6 +180,12 @@ pub trait ShortcutsProviderExt: IsA<ShortcutsProvider> + 'static {
         }
     }
 
+    #[cfg(not(feature = "v4_21_4"))]
+    #[cfg_attr(docsrs, doc(cfg(not(feature = "v4_21_4"))))]
+    fn name(&self) -> Option<glib::GString> {
+        ObjectExt::property(self.as_ref(), "name")
+    }
+
     #[doc(alias = "shortcut-added")]
     fn connect_shortcut_added<F: Fn(&Self, &str) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn shortcut_added_trampoline<

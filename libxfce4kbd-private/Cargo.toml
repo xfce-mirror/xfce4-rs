@@ -11,6 +11,10 @@ rustc-args = ["--cfg", "docsrs"]
 # For rustdoc
 rustdoc-args = ["--cfg", "docsrs"]
 
+[package.metadata.system-deps.libxfce4kbd_private_3.v4_21_4]
+name = "libxfce4kbd-private-3"
+version = "4.21.4"
+
 [dependencies]
 bitflags = "2.2"
 ffi = { package = "libxfce4kbd-private-sys", path = "sys" }
@@ -19,3 +23,6 @@ libc = "0.2"
 
 [dev-dependencies]
 regex = "1.10.4"
+
+[features]
+v4_21_4 = []

@@ -296,13 +296,13 @@ and/or use gtk-doc annotations.  -->
       <field name="snotify" writable="1" bits="1">
         <type name="guint" c:type="guint"/>
       </field>
-      <method name="copy" c:identifier="xfce_shortcut_copy" version="4.12.4">
+      <method name="copy" c:identifier="xfce_shortcut_copy" version="4.21.4">
         <source-position filename="libxfce4kbd-private/xfce-shortcuts-provider.h"
                          line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
-               line="744">A newly-allocated #XfceShortcut, which should be
+               line="745">A newly-allocated #XfceShortcut, which should be
 freed with xfce_shortcut_free() when no longer needed.</doc>
           <type name="Shortcut" c:type="XfceShortcut*"/>
         </return-value>
@@ -822,7 +822,7 @@ See xfce_shortcuts_editor_new_variadic for the expected types of the variable ar
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
-               line="330">A new #XfceShortcutsProvider, which should be
+               line="331">A new #XfceShortcutsProvider, which should be
 freed with g_object_unref() when no longer needed.</doc>
           <type name="ShortcutsProvider" c:type="XfceShortcutsProvider*"/>
         </return-value>
@@ -854,7 +854,7 @@ freed with g_object_unref() when no longer needed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
-               line="344">A #GList of
+               line="345">A #GList of
 #XfceShortcutsProvider items, which should be freed with
 xfce_shortcuts_provider_free_providers() when no longer needed.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -896,7 +896,7 @@ xfce_shortcuts_provider_free_providers() when no longer needed.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
-               line="581">A newly-allocated #XfceShortcut, which
+               line="582">A newly-allocated #XfceShortcut, which
 should be freed with xfce_shortcut_free() when no longer needed.</doc>
           <type name="Shortcut" c:type="XfceShortcut*"/>
         </return-value>
@@ -916,7 +916,7 @@ should be freed with xfce_shortcut_free() when no longer needed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4kbd-private/xfce-shortcuts-provider.c"
-               line="543">A #GList of
+               line="544">A #GList of
 #XfceShortcut items, which should be freed with xfce_shortcuts_free() when
 no longer needed.</doc>
           <type name="GLib.List" c:type="GList*">
