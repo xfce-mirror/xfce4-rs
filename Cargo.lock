@@ -331,6 +331,9 @@ dependencies = [
 [[package]]
 name = "libxfce4ui"
 version = "0.1.0"
+dependencies = [
+ "libxfce4ui-sys",
+]
 
 [[package]]
 name = "libxfce4ui-sys"

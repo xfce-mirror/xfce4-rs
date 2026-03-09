@@ -5,3 +5,11 @@ edition = "2024"
 license.workspace = true
 
 [dependencies]
+ffi = { package = "libxfce4ui-sys", path = "sys" }
+
+[features]
+dox = []
+v4_21 = ["ffi/v4_21"]
+v4_21_1 = ["ffi/v4_21_1", "v4_21"]
+v4_21_3 = ["ffi/v4_21_3", "v4_21_1"]
+v4_21_4 = ["ffi/v4_21_4", "v4_21_3"]
