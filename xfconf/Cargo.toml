@@ -16,3 +16,6 @@ bitflags = "2.2"
 ffi = { package = "xfconf-sys", path = "sys" }
 glib = "0.18"
 libc = "0.2"
+
+[features]
+v4_21_1 = ["ffi/v4_21_1"]
