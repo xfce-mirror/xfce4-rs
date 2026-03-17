@@ -14,6 +14,9 @@ version = "4.20"
 [package.metadata.system-deps.libxfconf_0.v4_21_1]
 version = "4.21.1"
 
+[package.metadata.system-deps.libxfconf_0.v4_21_2]
+version = "4.21.2"
+
 [package.metadata.docs.rs]
 rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
@@ -38,3 +41,4 @@ tempfile = "3"
 [features]
 dox = []
 v4_21_1 = []
+v4_21_2 = ["v4_21_1"]
