@@ -1,8 +1,16 @@
 [package]
 name = "xfconf"
-version = "0.1.0"
-edition = "2021"
+description = "Provides access to xfconf, Xfce's desktop configuration system"
+version.workspace = true
+edition.workspace = true
 license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories = [
+    "api-bindings",
+    "gui",
+]
 
 [package.metadata.docs.rs]
 all-features = true
@@ -12,10 +20,10 @@ rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-bitflags = "2.2"
-ffi = { package = "xfconf-sys", path = "sys" }
-glib = "0.18"
-libc = "0.2"
+bitflags.workspace = true
+ffi = { package = "xfconf-sys", path = "sys", version = "0.1.0-dev" }
+glib.workspace = true
+libc.workspace = true
 
 [features]
 v4_21_1 = ["ffi/v4_21_1"]

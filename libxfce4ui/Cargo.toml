@@ -1,11 +1,20 @@
 [package]
 name = "libxfce4ui"
-version = "0.1.0"
-edition = "2024"
+description = "Xfce UI utility library"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
 license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories = [
+    "api-bindings",
+    "gui",
+]
 
 [dependencies]
-ffi = { package = "libxfce4ui-sys", path = "sys" }
+ffi = { package = "libxfce4ui-sys", path = "sys", version = "0.1.0-dev" }
 
 [features]
 dox = []

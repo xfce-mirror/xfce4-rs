@@ -1,11 +1,19 @@
 [package]
 name = "libxfce4util-sys"
-version = "0.0.1"
-edition = "2021"
+description = "FFI bindings to libxfce4util"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
 build = "build.rs"
-
-[package.license]
-workspace = true
+links = "xfce4util"
+categories = [
+    "external-ffi-bindings",
+    "gui",
+]
 
 [package.metadata.system-deps.libxfce4util_1]
 name = "libxfce4util-1.0"
@@ -21,17 +29,17 @@ features = ["dox"]
 name = "libxfce4util_sys"
 
 [dependencies]
-gio-sys = "0.18"
-glib-sys = "0.18"
-gobject-sys = "0.18"
-libc = "0.2"
+gio-sys.workspace = true
+glib-sys.workspace = true
+gobject-sys.workspace = true
+libc.workspace = true
 
 [build-dependencies]
-system-deps = "7"
+system-deps.workspace = true
 
 [dev-dependencies]
-shell-words = "1.0.0"
-tempfile = "3"
+shell-words.workspace = true
+tempfile.workspace = true
 
 [features]
 dox = []

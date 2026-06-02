@@ -1,11 +1,19 @@
 [package]
 name = "libxfce4ui-sys"
-version = "0.0.1"
-edition = "2021"
+description = "FFI bindings to libxfce4ui"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
 build = "build.rs"
-
-[package.license]
-workspace = true
+links = "xfce4ui-2"
+categories = [
+    "external-ffi-bindings",
+    "gui",
+]
 
 [package.metadata.system-deps.libxfce4ui_2]
 name = "libxfce4ui-2"
@@ -33,27 +41,21 @@ features = ["dox"]
 name = "libxfce4ui_sys"
 
 [dependencies]
-gdk-sys = "0.18"
-gio-sys = "0.18"
-glib-sys = "0.18"
-gobject-sys = "0.18"
-gtk-sys = "0.18"
-libc = "0.2"
-
-[dependencies.cairo]
-package = "cairo-sys-rs"
-version = "0.18"
-
-[dependencies.gdk-pixbuf]
-package = "gdk-pixbuf-sys"
-version = "0.18"
+cairo.workspace = true
+gdk-pixbuf.workspace = true
+gdk-sys.workspace = true
+gio-sys.workspace = true
+glib-sys.workspace = true
+gobject-sys.workspace = true
+gtk-sys.workspace = true
+libc.workspace = true
 
 [build-dependencies]
-system-deps = "7"
+system-deps.workspace = true
 
 [dev-dependencies]
-shell-words = "1.0.0"
-tempfile = "3"
+shell-words.workspace = true
+tempfile.workspace = true
 
 [features]
 dox = []

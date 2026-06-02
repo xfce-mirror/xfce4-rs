@@ -1,11 +1,19 @@
 [package]
 name = "xfconf-sys"
-version = "0.0.1"
-edition = "2021"
+description = "FFI bindings to libxfconf"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
 build = "build.rs"
-
-[package.license]
-workspace = true
+links = "xfconf-0"
+categories = [
+    "external-ffi-bindings",
+    "gui",
+]
 
 [package.metadata.system-deps.libxfconf_0]
 name = "libxfconf-0"
@@ -27,16 +35,16 @@ features = ["dox"]
 name = "xfconf_sys"
 
 [dependencies]
-glib-sys = "0.18"
-gobject-sys = "0.18"
-libc = "0.2"
+glib-sys.workspace = true
+gobject-sys.workspace = true
+libc.workspace = true
 
 [build-dependencies]
-system-deps = "7"
+system-deps.workspace = true
 
 [dev-dependencies]
-shell-words = "1.0.0"
-tempfile = "3"
+shell-words.workspace = true
+tempfile.workspace = true
 
 [features]
 dox = []

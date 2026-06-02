@@ -1,8 +1,17 @@
 [package]
 name = "libxfce4kbd-private"
-version = "0.1.0"
-edition = "2021"
+description = "Bindings for the private Xfce keyboard library (not for use outside Xfce components)"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
 license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories = [
+    "api-bindings",
+    "gui",
+]
 
 [package.metadata.docs.rs]
 all-features = true
@@ -16,13 +25,13 @@ name = "libxfce4kbd-private-3"
 version = "4.21.4"
 
 [dependencies]
-bitflags = "2.2"
-ffi = { package = "libxfce4kbd-private-sys", path = "sys" }
-glib = "0.18"
-libc = "0.2"
+bitflags.workspace = true
+ffi = { package = "libxfce4kbd-private-sys", path = "sys", version = "0.1.0-dev" }
+glib.workspace = true
+libc.workspace = true
 
 [dev-dependencies]
-regex = "1.10.4"
+regex.workspace = true
 
 [features]
 v4_21_4 = ["ffi/v4_21_4"]

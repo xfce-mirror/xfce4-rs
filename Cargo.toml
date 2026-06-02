@@ -15,4 +15,33 @@ exclude = [
 resolver = "2"
 
 [workspace.package]
+version = "0.1.0-dev"
 license = "LGPL-2.1-only"
+edition = "2021"
+authors = [
+    "Brian Tarricone <brian@tarricone.org>",
+    "Andre Miranda <andreldm@xfce.org>",
+]
+homepage = "https://gitlab.xfce.org/bindings/xfce4-rs"
+repository = "https://gitlab.xfce.org/bindings/xfce4-rs"
+keywords = [
+    "api",
+    "binding",
+    "xfce",
+]
+
+[workspace.dependencies]
+bitflags = "2.2"
+cairo = { package = "cairo-sys-rs", version = "0.18" }
+gdk-pixbuf = { package = "gdk-pixbuf-sys", version = "0.18" }
+gdk-sys = "0.18"
+gio-sys = "0.18"
+glib = "0.18"
+glib-sys = "0.18"
+gobject-sys = "0.18"
+gtk-sys = "0.18"
+libc = "0.2"
+regex = "1.10.4"
+shell-words = "1.0.0"
+system-deps = "7"
+tempfile = "3"
