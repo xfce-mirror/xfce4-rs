@@ -1,5 +1,5 @@
 [package]
-name = "libxfce4util"
+name = "xfce4-util"
 description = "Xfce utility library"
 version.workspace = true
 authors.workspace = true

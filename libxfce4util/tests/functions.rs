@@ -1,4 +1,4 @@
-use libxfce4util::*;
+use xfce4_util::*;
 use regex::Regex;
 
 #[test]
