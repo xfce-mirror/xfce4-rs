@@ -1,7 +1,7 @@
 use std::{fmt, os::raw::c_void};
 
 use crate::{Color, ConvError, ToXfconfValue, TryFromXfconfValue, XfconfGValueExt};
-use glib::{prelude::*, translate::*, Type};
+use glib::{Type, prelude::*, translate::*};
 
 macro_rules! impl_try_from_xfconf_value_simple {
     ($ty:ty) => {
@@ -37,12 +37,10 @@ macro_rules! impl_try_from_xfconf_value_int {
                         .get::<&str>()
                         .map_err(as_conv_error)
                         .and_then(|v| v.parse::<$ty>().map_err(as_conv_error)),
-                    Type::BOOL => {
-                        value
-                            .get::<bool>()
-                            .map_err(as_conv_error)
-                            .map(|v| if v { 1 } else { 0 })
-                    }
+                    Type::BOOL => value
+                        .get::<bool>()
+                        .map_err(as_conv_error)
+                        .map(|v| if v { 1 } else { 0 }),
                     Type::FLAGS => {
                         if std::mem::size_of::<$ty>() < std::mem::size_of::<u32>() {
                             Err(ConvError::new("Flags type is too small to hold value"))
@@ -95,12 +93,10 @@ macro_rules! impl_try_from_xfconf_value_int16 {
                         .get::<&str>()
                         .map_err(as_conv_error)
                         .and_then(|v| v.parse::<$ty>().map_err(as_conv_error)),
-                    Type::BOOL => {
-                        value
-                            .get::<bool>()
-                            .map_err(as_conv_error)
-                            .map(|v| if v { 1 } else { 0 })
-                    }
+                    Type::BOOL => value
+                        .get::<bool>()
+                        .map_err(as_conv_error)
+                        .map(|v| if v { 1 } else { 0 }),
                     Type::FLAGS => {
                         if std::mem::size_of::<$ty>() < std::mem::size_of::<u32>() {
                             Err(ConvError::new("Flags type is too small to hold value"))
@@ -366,9 +362,11 @@ pub(crate) fn ptr_array_gtype() -> glib::Type {
 }
 
 unsafe extern "C" fn gvalue_ptr_free(ptr: *mut c_void) {
-    if !ptr.is_null() {
-        glib::gobject_ffi::g_value_unset(ptr as *mut _);
-        glib::ffi::g_free(ptr);
+    unsafe {
+        if !ptr.is_null() {
+            glib::gobject_ffi::g_value_unset(ptr as *mut _);
+            glib::ffi::g_free(ptr);
+        }
     }
 }
 

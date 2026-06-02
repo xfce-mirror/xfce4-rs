@@ -8,5 +8,7 @@
 ///
 /// You must ensure that there are no [crate::Channel] instances that are live
 pub unsafe fn shutdown() {
-    ffi::xfconf_shutdown();
+    unsafe {
+        ffi::xfconf_shutdown();
+    }
 }

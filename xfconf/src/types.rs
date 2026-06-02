@@ -1,6 +1,6 @@
 use std::fmt;
 
-use glib::{translate::*, value::ToValue, Type};
+use glib::{Type, translate::*, value::ToValue};
 
 use crate::conv::{gvalue_slice_to_gvalue, ptr_array_gtype};
 

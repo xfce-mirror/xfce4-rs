@@ -1,5 +1,5 @@
-use crate::{ffi, Consolekit};
-use glib::{translate::*, IsA};
+use crate::{Consolekit, ffi};
+use glib::{IsA, translate::*};
 
 pub trait ConsolekitExtManual {
     #[doc(alias = "xfce_consolekit_can_hibernate")]

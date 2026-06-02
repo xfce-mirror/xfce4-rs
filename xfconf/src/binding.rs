@@ -18,8 +18,10 @@ impl BindingId {
 impl FromGlib<u64> for BindingId {
     #[inline]
     unsafe fn from_glib(val: u64) -> Self {
-        debug_assert_ne!(val, 0);
-        Self(NonZeroU64::new_unchecked(val))
+        unsafe {
+            debug_assert_ne!(val, 0);
+            Self(NonZeroU64::new_unchecked(val))
+        }
     }
 }
 

@@ -95,24 +95,28 @@ impl<O: IsA<Channel>> ChannelExtManual for O {
 unsafe fn ghashtable_into_hashmap_string_value(
     ptr: *mut glib::ffi::GHashTable,
 ) -> HashMap<glib::GString, glib::Value> {
-    unsafe extern "C" fn read_string_hash_table(
-        key: glib::ffi::gpointer,
-        value: glib::ffi::gpointer,
-        hash_map: glib::ffi::gpointer,
-    ) -> i32 {
-        let key: glib::GString = from_glib_full(key as *const libc::c_char);
-        let value: glib::Value = from_glib_full(value as *const GValue);
-        let hash_map: &mut HashMap<glib::GString, glib::Value> =
-            &mut *(hash_map as *mut HashMap<glib::GString, glib::Value>);
-        hash_map.insert(key, value);
-        1
+    unsafe {
+        unsafe extern "C" fn read_string_hash_table(
+            key: glib::ffi::gpointer,
+            value: glib::ffi::gpointer,
+            hash_map: glib::ffi::gpointer,
+        ) -> i32 {
+            unsafe {
+                let key: glib::GString = from_glib_full(key as *const libc::c_char);
+                let value: glib::Value = from_glib_full(value as *const GValue);
+                let hash_map: &mut HashMap<glib::GString, glib::Value> =
+                    &mut *(hash_map as *mut HashMap<glib::GString, glib::Value>);
+                hash_map.insert(key, value);
+                1
+            }
+        }
+        let mut map = HashMap::with_capacity(glib::ffi::g_hash_table_size(ptr) as usize);
+        glib::ffi::g_hash_table_foreach_steal(
+            ptr,
+            Some(read_string_hash_table),
+            &mut map as *mut HashMap<glib::GString, glib::Value> as *mut _,
+        );
+        glib::ffi::g_hash_table_destroy(ptr);
+        map
     }
-    let mut map = HashMap::with_capacity(glib::ffi::g_hash_table_size(ptr) as usize);
-    glib::ffi::g_hash_table_foreach_steal(
-        ptr,
-        Some(read_string_hash_table),
-        &mut map as *mut HashMap<glib::GString, glib::Value> as *mut _,
-    );
-    glib::ffi::g_hash_table_destroy(ptr);
-    map
 }
