@@ -1,5 +1,5 @@
 [package]
-name = "libxfce4kbd-private"
+name = "xfce4-kbd-private"
 description = "Bindings for the private Xfce keyboard library (not for use outside Xfce components)"
 version.workspace = true
 authors.workspace = true

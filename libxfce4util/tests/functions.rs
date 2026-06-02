@@ -1,5 +1,5 @@
-use libxfce4util::*;
 use regex::Regex;
+use xfce4_util::*;
 
 #[test]
 fn get_version_should_print_xfce_version() {

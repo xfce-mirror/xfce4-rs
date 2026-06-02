@@ -351,17 +351,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
 
 [[package]]
-name = "libxfce4kbd-private"
-version = "0.1.0-dev"
-dependencies = [
- "bitflags",
- "glib",
- "libc",
- "libxfce4kbd-private-sys",
- "regex",
-]
-
-[[package]]
 name = "libxfce4kbd-private-sys"
 version = "0.1.0-dev"
 dependencies = [
@@ -373,13 +362,6 @@ dependencies = [
  "shell-words",
  "system-deps 7.0.8",
  "tempfile",
-]
-
-[[package]]
-name = "libxfce4ui"
-version = "0.1.0-dev"
-dependencies = [
- "libxfce4ui-sys",
 ]
 
 [[package]]
@@ -397,17 +379,6 @@ dependencies = [
  "shell-words",
  "system-deps 7.0.8",
  "tempfile",
-]
-
-[[package]]
-name = "libxfce4util"
-version = "0.1.0-dev"
-dependencies = [
- "bitflags",
- "glib",
- "libc",
- "libxfce4util-sys",
- "regex",
 ]
 
 [[package]]
@@ -1050,6 +1021,35 @@ dependencies = [
  "serde_json",
  "unicode-xid",
  "wasmparser",
+]
+
+[[package]]
+name = "xfce4-kbd-private"
+version = "0.1.0-dev"
+dependencies = [
+ "bitflags",
+ "glib",
+ "libc",
+ "libxfce4kbd-private-sys",
+ "regex",
+]
+
+[[package]]
+name = "xfce4-ui"
+version = "0.1.0-dev"
+dependencies = [
+ "libxfce4ui-sys",
+]
+
+[[package]]
+name = "xfce4-util"
+version = "0.1.0-dev"
+dependencies = [
+ "bitflags",
+ "glib",
+ "libc",
+ "libxfce4util-sys",
+ "regex",
 ]
 
 [[package]]
