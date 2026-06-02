@@ -2,39 +2,23 @@
 
 # xfce4-rs
 
-Experimental bindings of Xfce libraries for the Rust programming language. There are no concrete plans to port Xfce projects to Rust, these bindings are only for experimentation purposes.
+Experimental bindings of Xfce libraries for the Rust programming
+language. There are no concrete plans to port Xfce projects to Rust,
+these bindings are only for experimentation purposes.
 
-### Status
+See the `README.md` files in each sub-crate for more information.
+
+The crates here should be considered beta-quality when it comes to
+functionality and also API surface/stability.
+
+## Status
 
 | Library | Support |
 | ------ | ------ |
 | garcon | TODO |
 | libxfce4panel | TODO |
-| libxfce4ui | TODO |
+| libxfce4ui | WIP |
 | libxfce4util | WIP |
 | libxfce4windowing | TODO |
 | thunarx | TODO |
-| xfconf | WIP |
-
-### How to use
-
-Add to your project's `Cargo.toml`:
-
-```
-[dependencies]
-xfconf = {path = "/path/to/xfce4-rs/xfconf"}
-```
-
-Use as:
-
-```
-fn main() {
-    xfconf::init().expect("Failed to initialize xfconf");
-    let channel = xfconf::Channel::get("xfwm4");
-    let value = channel.get_string("/general/title_font", Some("not found")).expect("Failed to get string");
-    println!("title_font: {}", value);
-    unsafe { xfconf::shutdown() };
-}
-```
-
-In the future we might publish the bindings to crates.io.
+| xfconf | DONE |
