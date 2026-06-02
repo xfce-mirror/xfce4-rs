@@ -27,4 +27,4 @@ libc.workspace = true
 
 [features]
 v4_21_1 = ["ffi/v4_21_1"]
-v4_21_2 = ["v4_21_1", "ffi/v4_21_1"]
+v4_21_2 = ["v4_21_1", "ffi/v4_21_2"]
