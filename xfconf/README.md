@@ -12,6 +12,17 @@ Add to your project's `Cargo.toml`:
 xfconf = "0.1"
 ```
 
+The default feature-set of the crate will enable APIs available through
+4.20.x.  If you'd like to use APIs only available in newer versions of
+libxfconf, see the `[features]` section of `Cargo.toml` for
+version-based features you can enable.  For example, to enable new APIs
+present through version 4.21.2, you would instead specify:
+
+```toml
+[dependencies]
+xfconf = { version = "0.1", features = ["v4_21_2"] }
+```
+
 ## Example code:
 
 ```rust,no_run
