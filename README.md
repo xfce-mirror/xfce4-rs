@@ -11,6 +11,9 @@ See the `README.md` files in each sub-crate for more information.
 The crates here should be considered beta-quality when it comes to
 functionality and also API surface/stability.
 
+This crate depends on rust 1.90.0 or above.  It may build and work with
+previous versions, but we do not test or make any guarantees.
+
 ## Status
 
 | Library | Support |
