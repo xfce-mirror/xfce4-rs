@@ -36,7 +36,7 @@ glib-sys.workspace = true
 gobject-sys.workspace = true
 gtk-sys.workspace = true
 libc.workspace = true
-libxfce4ui = { package = "libxfce4ui-sys", path = "../../libxfce4ui/sys", version = "0.1.1-dev" }
+libxfce4ui = { package = "libxfce4ui-sys", path = "../../libxfce4ui/sys", version = "0.1.0" }
 
 [build-dependencies]
 system-deps.workspace = true
