@@ -14,7 +14,7 @@ categories = [
 ]
 
 [dependencies]
-ffi = { package = "libxfce4ui-sys", path = "sys", version = "0.2.1" }
+ffi = { package = "libxfce4ui-sys", path = "sys", version = "0.2.2" }
 
 [features]
 dox = []
