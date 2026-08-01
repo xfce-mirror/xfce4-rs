@@ -1,13 +1,7 @@
 use std::collections::HashMap;
 
 use crate::{Channel, ToXfconfValue, TryFromXfconfValue};
-use glib::{
-    SignalHandlerId,
-    gobject_ffi::{self, GValue},
-    prelude::*,
-    signal::connect_raw,
-    translate::*,
-};
+use glib::{SignalHandlerId, gobject_ffi::GValue, prelude::*, signal::connect_raw, translate::*};
 
 pub trait ChannelExtManual {
     #[doc(alias = "xfconf_channel_get_properties")]
@@ -31,7 +25,7 @@ impl Channel {
     /// ## `property`
     /// The property that changed.
     /// ## `value`
-    /// The new value.
+    /// The new value, or `None` if the property was deleted.
     #[doc(alias = "property-changed")]
     pub fn connect_property_changed<F: Fn(&Self, &str, Option<&glib::Value>) + 'static>(
         &self,
@@ -48,8 +42,8 @@ impl Channel {
         ) {
             unsafe {
                 let f: &F = &*(f as *const F);
-                let v = (gobject_ffi::g_value_get_type() != gobject_ffi::G_TYPE_INVALID)
-                    .then(|| from_glib_borrow(value));
+                let v = from_glib_borrow::<_, glib::Value>(value);
+                let v = (v.type_() != glib::Type::INVALID).then_some(v);
                 f(
                     &from_glib_borrow(this),
                     &glib::GString::from_glib_borrow(property),
