@@ -352,7 +352,7 @@ checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
 
 [[package]]
 name = "libxfce4kbd-private-sys"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "glib-sys",
  "gobject-sys",
@@ -366,7 +366,7 @@ dependencies = [
 
 [[package]]
 name = "libxfce4ui-sys"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "cairo-sys-rs",
  "gdk-pixbuf-sys",
@@ -383,7 +383,7 @@ dependencies = [
 
 [[package]]
 name = "libxfce4util-sys"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "gio-sys",
  "glib-sys",
@@ -1025,7 +1025,7 @@ dependencies = [
 
 [[package]]
 name = "xfce4-kbd-private"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "bitflags",
  "glib",
@@ -1036,14 +1036,14 @@ dependencies = [
 
 [[package]]
 name = "xfce4-ui"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "libxfce4ui-sys",
 ]
 
 [[package]]
 name = "xfce4-util"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "bitflags",
  "glib",
@@ -1054,7 +1054,7 @@ dependencies = [
 
 [[package]]
 name = "xfconf"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "bitflags",
  "glib",
@@ -1064,7 +1064,7 @@ dependencies = [
 
 [[package]]
 name = "xfconf-sys"
-version = "0.2.0-pre+dev"
+version = "0.2.0+dev"
 dependencies = [
  "glib-sys",
  "gobject-sys",

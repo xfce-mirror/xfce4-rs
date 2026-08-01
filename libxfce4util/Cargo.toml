@@ -22,7 +22,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 bitflags.workspace = true
-ffi = { package = "libxfce4util-sys", path = "sys", version = "0.2.0-pre" }
+ffi = { package = "libxfce4util-sys", path = "sys", version = "0.2.0" }
 glib.workspace = true
 libc.workspace = true
 
