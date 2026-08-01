@@ -26,7 +26,7 @@ version = "4.21.4"
 
 [dependencies]
 bitflags.workspace = true
-ffi = { package = "libxfce4kbd-private-sys", path = "sys", version = "0.2.0" }
+ffi = { package = "libxfce4kbd-private-sys", path = "sys", version = "0.2.1" }
 glib.workspace = true
 libc.workspace = true
 

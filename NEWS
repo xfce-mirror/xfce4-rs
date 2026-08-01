@@ -1,3 +1,10 @@
+0.2.1 (2026-07-31)
+=====
+- Re-release of 0.2.0 due to bad versioning pushed to crates.io
+- Manually implement Channel::connect_property_changed()
+- Switch dev versioning to use + instead of -
+
+
 0.2.0 (2026-07-31)
 =====
 - Manually implement Channel::connect_property_changed()
