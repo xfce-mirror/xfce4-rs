@@ -1,7 +1,13 @@
 use std::collections::HashMap;
 
 use crate::{Channel, ToXfconfValue, TryFromXfconfValue};
-use glib::{gobject_ffi::GValue, prelude::*, translate::*};
+use glib::{
+    SignalHandlerId,
+    gobject_ffi::{self, GValue},
+    prelude::*,
+    signal::connect_raw,
+    translate::*,
+};
 
 pub trait ChannelExtManual {
     #[doc(alias = "xfconf_channel_get_properties")]
@@ -15,6 +21,60 @@ pub trait ChannelExtManual {
 
     #[doc(alias = "xfconf_channel_set_property")]
     fn set_property<V: ToXfconfValue>(&self, property: &str, value: V) -> bool;
+}
+
+impl Channel {
+    /// Emitted whenever a property on `channel` has changed.
+    ///
+    /// If the change was caused by the removal of `property`, `value` will be `None`.
+    ///
+    /// ## `property`
+    /// The property that changed.
+    /// ## `value`
+    /// The new value.
+    #[doc(alias = "property-changed")]
+    pub fn connect_property_changed<F: Fn(&Self, &str, Option<&glib::Value>) + 'static>(
+        &self,
+        detail: Option<&str>,
+        f: F,
+    ) -> SignalHandlerId {
+        unsafe extern "C" fn property_changed_trampoline<
+            F: Fn(&Channel, &str, Option<&glib::Value>) + 'static,
+        >(
+            this: *mut ffi::XfconfChannel,
+            property: *mut std::ffi::c_char,
+            value: *mut glib::gobject_ffi::GValue,
+            f: glib::ffi::gpointer,
+        ) {
+            unsafe {
+                let f: &F = &*(f as *const F);
+                let v = (gobject_ffi::g_value_get_type() != gobject_ffi::G_TYPE_INVALID)
+                    .then(|| from_glib_borrow(value));
+                f(
+                    &from_glib_borrow(this),
+                    &glib::GString::from_glib_borrow(property),
+                    v.as_deref(),
+                )
+            }
+        }
+        unsafe {
+            let f: Box<F> = Box::new(f);
+            let detailed_signal_name = detail.map(|name| format!("property-changed::{name}\0"));
+            let signal_name = detailed_signal_name
+                .as_ref()
+                .map_or(c"property-changed", |n| {
+                    std::ffi::CStr::from_bytes_with_nul_unchecked(n.as_bytes())
+                });
+            connect_raw(
+                self.as_ptr() as *mut _,
+                signal_name.as_ptr(),
+                Some(std::mem::transmute::<*const (), unsafe extern "C" fn()>(
+                    property_changed_trampoline::<F> as *const (),
+                )),
+                Box::into_raw(f),
+            )
+        }
+    }
 }
 
 impl<O: IsA<Channel>> ChannelExtManual for O {

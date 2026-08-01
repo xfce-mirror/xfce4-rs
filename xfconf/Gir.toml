@@ -80,6 +80,12 @@ manual_traits = "ChannelBindingExt"
 name = "Xfconf.Channel"
 status = "generate"
 manual_traits = "ChannelExtManual"
+    [[object.signal]]
+    # Need to implement this manually to work around an unfortunate API
+    # decision of the C library.
+    name = "property-changed"
+    ignore = true
+    generate_doc = false
     [[object.function]]
     name = "get_property"
     manual = true

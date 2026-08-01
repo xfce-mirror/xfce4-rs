@@ -4,13 +4,7 @@
 // DO NOT EDIT
 
 use crate::ffi;
-use glib::{
-    object::ObjectType as _,
-    prelude::*,
-    signal::{SignalHandlerId, connect_raw},
-    translate::*,
-};
-use std::boxed::Box as Box_;
+use glib::{prelude::*, translate::*};
 
 glib::wrapper! {
     /// An opaque structure that holds state about a channel.
@@ -215,57 +209,5 @@ impl Channel {
     #[doc(alias = "property-base")]
     pub fn property_base(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "property-base")
-    }
-
-    /// Emitted whenever a property on `channel` has changed. If
-    /// the change was caused by the removal of `property`, `value`
-    /// will be unset; you should test this with
-    /// `<informalexample>``<programlisting>`
-    /// G_VALUE_TYPE(value) == G_TYPE_INVALID
-    /// `</programlisting>``</informalexample>`
-    /// ## `property`
-    /// The property that changed.
-    /// ## `value`
-    /// The new value.
-    #[doc(alias = "property-changed")]
-    pub fn connect_property_changed<F: Fn(&Self, &str, &glib::Value) + 'static>(
-        &self,
-        detail: Option<&str>,
-        f: F,
-    ) -> SignalHandlerId {
-        unsafe extern "C" fn property_changed_trampoline<
-            F: Fn(&Channel, &str, &glib::Value) + 'static,
-        >(
-            this: *mut ffi::XfconfChannel,
-            property: *mut std::ffi::c_char,
-            value: *mut glib::gobject_ffi::GValue,
-            f: glib::ffi::gpointer,
-        ) {
-            unsafe {
-                let f: &F = &*(f as *const F);
-                f(
-                    &from_glib_borrow(this),
-                    &glib::GString::from_glib_borrow(property),
-                    &from_glib_borrow(value),
-                )
-            }
-        }
-        unsafe {
-            let f: Box_<F> = Box_::new(f);
-            let detailed_signal_name = detail.map(|name| format!("property-changed::{name}\0"));
-            let signal_name = detailed_signal_name
-                .as_ref()
-                .map_or(c"property-changed", |n| {
-                    std::ffi::CStr::from_bytes_with_nul_unchecked(n.as_bytes())
-                });
-            connect_raw(
-                self.as_ptr() as *mut _,
-                signal_name.as_ptr(),
-                Some(std::mem::transmute::<*const (), unsafe extern "C" fn()>(
-                    property_changed_trampoline::<F> as *const (),
-                )),
-                Box_::into_raw(f),
-            )
-        }
     }
 }
