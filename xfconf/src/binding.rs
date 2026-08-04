@@ -1,26 +1,27 @@
-use std::num::NonZeroU64;
+use std::num::NonZero;
+use std::os::raw::c_ulong;
 
 use glib::{prelude::*, translate::*};
 
 use crate::Channel;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct BindingId(NonZeroU64);
+pub struct BindingId(NonZero<c_ulong>);
 
 impl BindingId {
     // rustdoc-stripper-ignore-next
     /// Returns the internal binding ID.
-    pub fn as_raw(&self) -> u64 {
+    pub fn as_raw(&self) -> c_ulong {
         self.0.get()
     }
 }
 
-impl FromGlib<u64> for BindingId {
+impl FromGlib<c_ulong> for BindingId {
     #[inline]
-    unsafe fn from_glib(val: u64) -> Self {
+    unsafe fn from_glib(val: c_ulong) -> Self {
         unsafe {
             debug_assert_ne!(val, 0);
-            Self(NonZeroU64::new_unchecked(val))
+            Self(NonZero::<c_ulong>::new_unchecked(val))
         }
     }
 }
@@ -144,7 +145,7 @@ impl<O: IsA<Channel>> ChannelBindingExt for O {
                 object_property.to_glib_none().0,
             )
         };
-        BindingId(NonZeroU64::new(id).unwrap())
+        BindingId(NonZero::<c_ulong>::new(id).unwrap())
     }
 
     fn bind_gdkrgba_property(
@@ -161,7 +162,7 @@ impl<O: IsA<Channel>> ChannelBindingExt for O {
                 object_property.to_glib_none().0,
             )
         };
-        BindingId(NonZeroU64::new(id).unwrap())
+        BindingId(NonZero::<c_ulong>::new(id).unwrap())
     }
 
     fn unbind(&self, id: BindingId) {
