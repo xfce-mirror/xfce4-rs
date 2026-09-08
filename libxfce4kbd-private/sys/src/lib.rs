@@ -15,6 +15,7 @@
 use glib_sys as glib;
 use gobject_sys as gobject;
 use gtk_sys as gtk;
+use libxfce4ui_sys as libxfce4ui;
 
 #[allow(unused_imports)]
 use libc::{FILE, intptr_t, off_t, size_t, ssize_t, time_t, uintptr_t};

@@ -31,17 +31,24 @@ keywords = [
 ]
 
 [workspace.dependencies]
-bitflags = "2.2"
-cairo = { package = "cairo-sys-rs", version = "0.22" }
-gdk-pixbuf = { package = "gdk-pixbuf-sys", version = "0.22" }
+libxfce4kbd-private-sys = { path = "libxfce4kbd-private/sys", version = "0.2.2" }
+libxfce4ui-sys = { path = "libxfce4ui/sys", version = "0.2.2" }
+libxfce4util-sys = { path = "libxfce4util/sys", version = "0.2.2" }
+xfce4-kbd-private = { path = "libxfce4kbd-private", version = "0.2.2" }
+xfce4-ui = { path = "libxfce4ui", version = "0.2.2" }
+xfce4-util = { path = "libxfce4util", version = "0.2.2" }
+xfconf = { path = "xfconf", version = "0.2.2" }
+xfconf-sys = { path = "xfconf/sys", version = "0.2.2" }
+
+cairo-sys = { package = "cairo-sys-rs", version = "0.22" }
+gdk-pixbuf-sys = "0.22"
 gdk-sys = "0.19"
 gio-sys = "0.22"
 glib = "0.22"
 glib-sys = "0.22"
 gobject-sys = "0.22"
 gtk-sys = "0.19"
+
+bitflags = "2.2"
 libc = "0.2"
 regex = "1.10.4"
-shell-words = "1.0.0"
-system-deps = "7"
-tempfile = "3"

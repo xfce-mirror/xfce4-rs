@@ -10,9 +10,11 @@ girs_directories = [
 work_mode = "sys"
 single_version_file = true
 external_libraries = [
-    "Glib",
+    "Cairo",
     "GObject",
-    "Gio",
     "Gdk",
+    "GdkPixbuf",
+    "Gio",
+    "Glib",
     "Gtk",
 ]

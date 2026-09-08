@@ -35,10 +35,8 @@ name = "libxfce4util-1.0"
 version = "4.20"
 
 [package.metadata.docs.rs]
-rustc-args = ["--cfg", "docsrs"]
-rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+rustdoc-args = ["--generate-link-to-definition"]
 all-features = true
-features = ["dox"]
 
 [lib]
 name = "libxfce4util_sys"

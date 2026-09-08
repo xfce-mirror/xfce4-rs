@@ -3,7 +3,7 @@ use std::os::raw::c_ulong;
 
 use glib::{prelude::*, translate::*};
 
-use crate::Channel;
+use crate::{Channel, ffi};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct BindingId(NonZero<c_ulong>);

@@ -8,6 +8,6 @@ mod shortcut;
 
 pub use auto::traits::*;
 pub use auto::*;
-pub use ffi;
+pub use libxfce4kbdprivate_sys as ffi;
 #[cfg(feature = "v4_21_4")]
 pub use shortcut::*;

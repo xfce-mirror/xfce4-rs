@@ -21,10 +21,10 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 bitflags.workspace = true
-ffi = { package = "xfconf-sys", path = "sys", version = "0.2.2" }
 glib.workspace = true
 libc.workspace = true
+xfconf-sys.workspace = true
 
 [features]
-v4_21_1 = ["ffi/v4_21_1"]
-v4_21_2 = ["v4_21_1", "ffi/v4_21_2"]
+v4_21_1 = ["xfconf-sys/v4_21_1"]
+v4_21_2 = ["v4_21_1", "xfconf-sys/v4_21_2"]

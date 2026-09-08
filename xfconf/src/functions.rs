@@ -1,3 +1,5 @@
+use crate::ffi;
+
 // rustdoc-stripper-ignore-next
 /// Shuts down and frees any resources consumed by the Xfconf library.
 ///

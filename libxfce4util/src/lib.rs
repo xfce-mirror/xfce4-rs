@@ -9,6 +9,6 @@ mod systemd;
 pub use auto::functions::*;
 pub use auto::*;
 pub use consolekit::*;
-pub use ffi;
 pub use functions::*;
+pub use libxfce4util_sys as ffi;
 pub use systemd::*;

@@ -43,10 +43,8 @@ version = "4.21.3"
 version = "4.21.4"
 
 [package.metadata.docs.rs]
-rustc-args = ["--cfg", "docsrs"]
-rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+rustdoc-args = ["--generate-link-to-definition"]
 all-features = true
-features = ["dox"]
 
 [lib]
 name = "libxfce4ui_sys"
@@ -54,22 +52,22 @@ name = "libxfce4ui_sys"
 [dependencies]
 libc = "0.2"
 
-[dependencies.cairo]
+[dependencies.cairo-sys]
 workspace = true
 
-[dependencies.gdk-pixbuf]
+[dependencies.gobject-sys]
 workspace = true
 
 [dependencies.gdk-sys]
+workspace = true
+
+[dependencies.gdk-pixbuf-sys]
 workspace = true
 
 [dependencies.gio-sys]
 workspace = true
 
 [dependencies.glib-sys]
-workspace = true
-
-[dependencies.gobject-sys]
 workspace = true
 
 [dependencies.gtk-sys]
@@ -83,7 +81,6 @@ shell-words = "1.0.0"
 tempfile = "3"
 
 [features]
-dox = []
 v4_21 = []
 v4_21_1 = ["v4_21"]
 v4_21_3 = ["v4_21_1"]

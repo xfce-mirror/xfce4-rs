@@ -12,6 +12,8 @@
 )]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+use cairo_sys as cairo;
+use gdk_pixbuf_sys as gdk_pixbuf;
 use gdk_sys as gdk;
 use gio_sys as gio;
 use glib_sys as glib;

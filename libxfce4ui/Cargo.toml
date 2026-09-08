@@ -14,11 +14,11 @@ categories = [
 ]
 
 [dependencies]
-ffi = { package = "libxfce4ui-sys", path = "sys", version = "0.2.2" }
+libxfce4ui-sys.workspace = true
 
 [features]
 dox = []
-v4_21 = ["ffi/v4_21"]
-v4_21_1 = ["ffi/v4_21_1", "v4_21"]
-v4_21_3 = ["ffi/v4_21_3", "v4_21_1"]
-v4_21_4 = ["ffi/v4_21_4", "v4_21_3"]
+v4_21 = ["libxfce4ui-sys/v4_21"]
+v4_21_1 = ["libxfce4ui-sys/v4_21_1", "v4_21"]
+v4_21_3 = ["libxfce4ui-sys/v4_21_3", "v4_21_1"]
+v4_21_4 = ["libxfce4ui-sys/v4_21_4", "v4_21_3"]

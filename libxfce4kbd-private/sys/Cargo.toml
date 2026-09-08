@@ -34,10 +34,8 @@ version = "4.20"
 version = "4.21.4"
 
 [package.metadata.docs.rs]
-rustc-args = ["--cfg", "docsrs"]
-rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+rustdoc-args = ["--generate-link-to-definition"]
 all-features = true
-features = ["dox"]
 
 [lib]
 name = "libxfce4kbdprivate_sys"
@@ -54,10 +52,8 @@ workspace = true
 [dependencies.gtk-sys]
 workspace = true
 
-[dependencies.libxfce4ui]
-package = "libxfce4ui-sys"
-path = "../../libxfce4ui/sys"
-version = "0.2.2"
+[dependencies.libxfce4ui-sys]
+workspace = true
 
 [build-dependencies]
 system-deps = "9"

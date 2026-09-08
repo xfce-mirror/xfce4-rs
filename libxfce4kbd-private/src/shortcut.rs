@@ -5,7 +5,7 @@ use std::{
 
 use glib::translate::from_glib_full;
 
-use crate::Shortcut;
+use crate::{Shortcut, ffi};
 
 pub trait ShortcutManualExt {
     fn new(property_name: &str, shortcut: &str, command: &str, startup_notify: bool) -> Self;

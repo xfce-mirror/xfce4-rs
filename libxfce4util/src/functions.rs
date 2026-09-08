@@ -1,5 +1,7 @@
 use glib::translate::*;
 
+use crate::ffi;
+
 #[doc(alias = "xfce_get_license_text")]
 pub fn get_license_text(license_type: ffi::XfceLicenseTextType) -> glib::GString {
     unsafe { from_glib_none(ffi::xfce_get_license_text(license_type)) }

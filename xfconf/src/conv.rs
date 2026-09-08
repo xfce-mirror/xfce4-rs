@@ -1,7 +1,8 @@
 use std::{fmt, os::raw::c_void};
 
-use crate::{Color, ConvError, ToXfconfValue, TryFromXfconfValue, XfconfGValueExt};
 use glib::{Type, prelude::*, translate::*};
+
+use crate::{Color, ConvError, ToXfconfValue, TryFromXfconfValue, XfconfGValueExt};
 
 macro_rules! impl_try_from_xfconf_value_simple {
     ($ty:ty) => {

@@ -2,7 +2,10 @@ use std::fmt;
 
 use glib::{Type, translate::*, value::ToValue};
 
-use crate::conv::{gvalue_slice_to_gvalue, ptr_array_gtype};
+use crate::{
+    conv::{gvalue_slice_to_gvalue, ptr_array_gtype},
+    ffi,
+};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct ConvError(String);

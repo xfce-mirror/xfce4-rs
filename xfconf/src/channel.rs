@@ -1,7 +1,8 @@
 use std::collections::HashMap;
 
-use crate::{Channel, ToXfconfValue, TryFromXfconfValue};
 use glib::{SignalHandlerId, gobject_ffi::GValue, prelude::*, signal::connect_raw, translate::*};
+
+use crate::{Channel, ToXfconfValue, TryFromXfconfValue, ffi};
 
 pub trait ChannelExtManual {
     #[doc(alias = "xfconf_channel_get_properties")]
