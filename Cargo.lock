@@ -20,7 +20,7 @@ dependencies = [
  "glib-sys",
  "gobject-sys",
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -36,7 +36,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ee548131103ad8f698c6725669647b9c757b3b66992dd6a026037596417bee21"
 dependencies = [
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -143,7 +143,7 @@ dependencies = [
  "glib-sys",
  "gobject-sys",
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -160,7 +160,7 @@ dependencies = [
  "libc",
  "pango-sys",
  "pkg-config",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -183,7 +183,7 @@ dependencies = [
  "glib-sys",
  "gobject-sys",
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
  "windows-sys",
 ]
 
@@ -227,7 +227,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "99b38907e67e40dec9b60f858bcada952598719cb512a13eb13d6cdcd16f8295"
 dependencies = [
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -238,7 +238,7 @@ checksum = "07595c9ba696bd9819cb6a8df39f08078f3dd679508fe052dd558492c2053834"
 dependencies = [
  "glib-sys",
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -256,7 +256,7 @@ dependencies = [
  "gobject-sys",
  "libc",
  "pango-sys",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -297,7 +297,7 @@ dependencies = [
  "libc",
  "libxfce4ui-sys",
  "shell-words",
- "system-deps 7.0.8",
+ "system-deps",
  "tempfile",
 ]
 
@@ -314,7 +314,7 @@ dependencies = [
  "gtk-sys",
  "libc",
  "shell-words",
- "system-deps 7.0.8",
+ "system-deps",
  "tempfile",
 ]
 
@@ -327,7 +327,7 @@ dependencies = [
  "gobject-sys",
  "libc",
  "shell-words",
- "system-deps 7.0.8",
+ "system-deps",
  "tempfile",
 ]
 
@@ -358,7 +358,7 @@ dependencies = [
  "glib-sys",
  "gobject-sys",
  "libc",
- "system-deps 9.0.0",
+ "system-deps",
 ]
 
 [[package]]
@@ -495,19 +495,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
-]
-
-[[package]]
-name = "system-deps"
-version = "7.0.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "396a35feb67335377e0251fcbc1092fc85c484bd4e3a7a54319399da127796e7"
-dependencies = [
- "cfg-expr",
- "heck",
- "pkg-config",
- "toml",
- "version-compare",
 ]
 
 [[package]]
@@ -661,6 +648,6 @@ dependencies = [
  "gobject-sys",
  "libc",
  "shell-words",
- "system-deps 7.0.8",
+ "system-deps",
  "tempfile",
 ]

@@ -1,21 +1,36 @@
 [package]
 name = "libxfce4util-sys"
 description = "FFI bindings to libxfce4util"
-version.workspace = true
-authors.workspace = true
-edition.workspace = true
-license.workspace = true
-homepage.workspace = true
-repository.workspace = true
-keywords.workspace = true
 build = "build.rs"
 links = "xfce4util"
-categories = [
-    "external-ffi-bindings",
-    "gui",
-]
+categories = ["external-ffi-bindings", "gui"]
+
+[package.version]
+workspace = true
+
+[package.authors]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.homepage]
+workspace = true
+
+[package.repository]
+workspace = true
+
+[package.keywords]
+workspace = true
 
 [package.metadata.system-deps.libxfce4util_1]
+name = "libxfce4util-1.0"
+version = "4.20"
+
+[package.metadata.system-deps.libxfce4util_1_0]
 name = "libxfce4util-1.0"
 version = "4.20"
 
@@ -29,17 +44,23 @@ features = ["dox"]
 name = "libxfce4util_sys"
 
 [dependencies]
-gio-sys.workspace = true
-glib-sys.workspace = true
-gobject-sys.workspace = true
-libc.workspace = true
+libc = "0.2"
+
+[dependencies.gio-sys]
+workspace = true
+
+[dependencies.glib-sys]
+workspace = true
+
+[dependencies.gobject-sys]
+workspace = true
 
 [build-dependencies]
-system-deps.workspace = true
+system-deps = "9"
 
 [dev-dependencies]
-shell-words.workspace = true
-tempfile.workspace = true
+shell-words = "1.0.0"
+tempfile = "3"
 
 [features]
 dox = []

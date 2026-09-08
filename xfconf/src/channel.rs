@@ -18,14 +18,6 @@ pub trait ChannelExtManual {
 }
 
 impl Channel {
-    /// Emitted whenever a property on `channel` has changed.
-    ///
-    /// If the change was caused by the removal of `property`, `value` will be `None`.
-    ///
-    /// ## `property`
-    /// The property that changed.
-    /// ## `value`
-    /// The new value, or `None` if the property was deleted.
     #[doc(alias = "property-changed")]
     pub fn connect_property_changed<F: Fn(&Self, &str, Option<&glib::Value>) + 'static>(
         &self,

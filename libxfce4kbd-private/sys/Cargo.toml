@@ -1,19 +1,30 @@
 [package]
 name = "libxfce4kbd-private-sys"
 description = "FFI bindings to libxfce4kbd-private"
-version.workspace = true
-authors.workspace = true
-edition.workspace = true
-license.workspace = true
-homepage.workspace = true
-repository.workspace = true
-keywords.workspace = true
 build = "build.rs"
 links = "xfce4kbd-private-3"
-categories = [
-    "external-ffi-bindings",
-    "gui",
-]
+categories = ["external-ffi-bindings", "gui"]
+
+[package.version]
+workspace = true
+
+[package.authors]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.homepage]
+workspace = true
+
+[package.repository]
+workspace = true
+
+[package.keywords]
+workspace = true
 
 [package.metadata.system-deps.libxfce4kbd_private_3]
 name = "libxfce4kbd-private-3"
@@ -32,18 +43,28 @@ features = ["dox"]
 name = "libxfce4kbdprivate_sys"
 
 [dependencies]
-glib-sys.workspace = true
-gobject-sys.workspace = true
-gtk-sys.workspace = true
-libc.workspace = true
-libxfce4ui = { package = "libxfce4ui-sys", path = "../../libxfce4ui/sys", version = "0.2.2" }
+libc = "0.2"
+
+[dependencies.glib-sys]
+workspace = true
+
+[dependencies.gobject-sys]
+workspace = true
+
+[dependencies.gtk-sys]
+workspace = true
+
+[dependencies.libxfce4ui]
+package = "libxfce4ui-sys"
+path = "../../libxfce4ui/sys"
+version = "0.2.2"
 
 [build-dependencies]
-system-deps.workspace = true
+system-deps = "9"
 
 [dev-dependencies]
-shell-words.workspace = true
-tempfile.workspace = true
+shell-words = "1.0.0"
+tempfile = "3"
 
 [features]
 dox = []

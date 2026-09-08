@@ -5,7 +5,4 @@ set -ex
 me=$(dirname "$0")
 cd "$me"
 
-trap "rm -f ./{libxfce4kbd-private,libxfce4ui,libxfce4util,xfconf}/docs.md" EXIT
-
-./gir/generator.py --gir-files-directories ./gir-files.gtk/ ./gir-files.xfce/
-./gir/generator.py --strip-docs --embed-docs --gir-files-directories ./gir-files.gtk/ ./gir-files.xfce/
+python3 ./gir/generator.py --strip-docs --embed-docs --gir-files-directories ./gir-files.gtk/ ./gir-files.xfce/

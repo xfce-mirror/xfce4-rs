@@ -19,7 +19,7 @@ glib::wrapper! {
     ///
     ///
     /// #### `name`
-    ///  Readable | Writeable | Construct Only
+    ///  Readable | Writable | Construct Only
     ///
     /// ## Signals
     ///

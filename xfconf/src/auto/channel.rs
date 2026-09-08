@@ -15,7 +15,7 @@ glib::wrapper! {
     /// #### `channel-name`
     ///  The string identifier used for this channel.
     ///
-    /// Readable | Writeable | Construct Only
+    /// Readable | Writable | Construct Only
     ///
     ///
     /// #### `is-singleton`
@@ -23,14 +23,14 @@ glib::wrapper! {
     /// or not. This is mainly used internally by [`Channel`][crate::Channel]
     /// but may be useful for API users.
     ///
-    /// Readable | Writeable | Construct Only
+    /// Readable | Writable | Construct Only
     ///
     ///
     /// #### `property-base`
     ///  The string identifier used for the property base inside a channel.
     /// This can be used to restrict a channel to a subset of properties.
     ///
-    /// Readable | Writeable | Construct Only
+    /// Readable | Writable | Construct Only
     ///
     /// ## Signals
     ///
