@@ -1,3 +1,13 @@
+0.3.0 (2026-09-08)
+=====
+- Bump MSRV to rust 1.92.0
+- Modernize dep management and ffi crate decls
+- Bump gir & gir-files and regenerate
+- Update deps
+- Update to gtk3-rs 0.19 and gtk-rs-core 0.22
+- xfconf: fix build on 32bit arches
+
+
 0.2.2 (2026-08-01)
 =====
 - Actually fix issue with Channel::property-changed

@@ -15,7 +15,7 @@ exclude = [
 resolver = "2"
 
 [workspace.package]
-version = "0.2.2+dev"
+version = "0.3.0"
 license = "LGPL-2.1-only"
 edition = "2024"
 authors = [
@@ -32,14 +32,14 @@ keywords = [
 ]
 
 [workspace.dependencies]
-libxfce4kbd-private-sys = { path = "libxfce4kbd-private/sys", version = "0.2.2" }
-libxfce4ui-sys = { path = "libxfce4ui/sys", version = "0.2.2" }
-libxfce4util-sys = { path = "libxfce4util/sys", version = "0.2.2" }
-xfce4-kbd-private = { path = "libxfce4kbd-private", version = "0.2.2" }
-xfce4-ui = { path = "libxfce4ui", version = "0.2.2" }
-xfce4-util = { path = "libxfce4util", version = "0.2.2" }
-xfconf = { path = "xfconf", version = "0.2.2" }
-xfconf-sys = { path = "xfconf/sys", version = "0.2.2" }
+libxfce4kbd-private-sys = { path = "libxfce4kbd-private/sys", version = "0.3.0" }
+libxfce4ui-sys = { path = "libxfce4ui/sys", version = "0.3.0" }
+libxfce4util-sys = { path = "libxfce4util/sys", version = "0.3.0" }
+xfce4-kbd-private = { path = "libxfce4kbd-private", version = "0.3.0" }
+xfce4-ui = { path = "libxfce4ui", version = "0.3.0" }
+xfce4-util = { path = "libxfce4util", version = "0.3.0" }
+xfconf = { path = "xfconf", version = "0.3.0" }
+xfconf-sys = { path = "xfconf/sys", version = "0.3.0" }
 
 cairo-sys = { package = "cairo-sys-rs", version = "0.22" }
 gdk-pixbuf-sys = "0.22"
