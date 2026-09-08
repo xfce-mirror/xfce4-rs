@@ -32,14 +32,14 @@ keywords = [
 
 [workspace.dependencies]
 bitflags = "2.2"
-cairo = { package = "cairo-sys-rs", version = "0.18" }
-gdk-pixbuf = { package = "gdk-pixbuf-sys", version = "0.18" }
-gdk-sys = "0.18"
-gio-sys = "0.18"
-glib = "0.18"
-glib-sys = "0.18"
-gobject-sys = "0.18"
-gtk-sys = "0.18"
+cairo = { package = "cairo-sys-rs", version = "0.22" }
+gdk-pixbuf = { package = "gdk-pixbuf-sys", version = "0.22" }
+gdk-sys = "0.19"
+gio-sys = "0.22"
+glib = "0.22"
+glib-sys = "0.22"
+gobject-sys = "0.22"
+gtk-sys = "0.19"
 libc = "0.2"
 regex = "1.10.4"
 shell-words = "1.0.0"

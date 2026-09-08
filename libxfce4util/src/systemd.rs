@@ -1,5 +1,5 @@
 use crate::{Systemd, ffi};
-use glib::{IsA, translate::*};
+use glib::{object::IsA, translate::*};
 
 pub trait SystemdExtManual {
     #[doc(alias = "xfce_systemd_can_hibernate")]

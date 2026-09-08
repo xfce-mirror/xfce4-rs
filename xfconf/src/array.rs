@@ -4,9 +4,9 @@ use std::{
 };
 
 use glib::{
-    StaticType, ToValue,
     translate::{FromGlib, FromGlibPtrNone, ToGlibPtr, ToGlibPtrMut},
-    value::{FromValue, GenericValueTypeChecker, ValueType},
+    types::StaticType,
+    value::{FromValue, GenericValueTypeChecker, ToValue, ValueType},
 };
 
 static G_TYPE_PTR_ARRAY: LazyLock<glib::Type> = LazyLock::new(|| {
