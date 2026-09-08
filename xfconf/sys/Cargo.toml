@@ -26,6 +26,9 @@ workspace = true
 [package.keywords]
 workspace = true
 
+[package.rust-version]
+workspace = true
+
 [package.metadata.system-deps.libxfconf_0]
 name = "libxfconf-0"
 version = "4.20"

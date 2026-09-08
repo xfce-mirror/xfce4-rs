@@ -24,6 +24,7 @@ authors = [
 ]
 homepage = "https://gitlab.xfce.org/bindings/xfce4-rs"
 repository = "https://gitlab.xfce.org/bindings/xfce4-rs"
+rust-version = "1.92.0"
 keywords = [
     "api",
     "binding",

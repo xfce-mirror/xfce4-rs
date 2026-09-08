@@ -26,6 +26,9 @@ workspace = true
 [package.keywords]
 workspace = true
 
+[package.rust-version]
+workspace = true
+
 [package.metadata.system-deps.libxfce4kbd_private_3]
 name = "libxfce4kbd-private-3"
 version = "4.20"

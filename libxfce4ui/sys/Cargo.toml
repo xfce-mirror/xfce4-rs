@@ -26,6 +26,9 @@ workspace = true
 [package.keywords]
 workspace = true
 
+[package.rust-version]
+workspace = true
+
 [package.metadata.system-deps.libxfce4ui_2]
 name = "libxfce4ui-2"
 version = "4.20"
